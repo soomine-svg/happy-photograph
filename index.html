@@ -314,6 +314,209 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
   .cta-cutout{display:none} /* 狭い画面では2枚目を隠す */
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* =================================================================
+   ABOUT (わたしたち)
+   ================================================================= */
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center;position:relative;z-index:2}
+.about-note{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-sm);padding:clamp(1.4rem,3vw,2rem);position:relative;transform:rotate(-1.4deg)}
+.about-note .script{font-size:1.5rem;margin-bottom:.3rem}
+.about-note p{font-weight:500;font-size:.96rem}
+.about-note .about-sign{margin-top:1rem;font-family:var(--f-script);color:var(--teal-deep);font-size:1.4rem;line-height:1}
+.about-text p{font-weight:500;color:var(--ink);margin-bottom:1rem}
+.about-text p:last-child{margin-bottom:0}
+.about-spine{font-family:var(--f-jp);font-weight:700;color:var(--teal-deep);font-size:1.08rem;line-height:1.7;border-left:3px solid var(--honey);padding-left:1rem;margin-top:.4rem}
+
+/* =================================================================
+   ALBUM INSIDE (アルバムのなかみ — 2層)
+   ================================================================= */
+.album{background:var(--paper-2)}
+.album-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,3vw,2rem);position:relative;z-index:2;align-items:stretch}
+.album-card{background:#fff;border-radius:24px;box-shadow:var(--shadow-sm);padding:clamp(1.6rem,3.4vw,2.3rem);display:flex;flex-direction:column;border-top:6px solid var(--c,var(--teal))}
+.album-card .a-kicker{font-family:var(--f-script);color:var(--c,var(--teal-deep));font-size:1.5rem;line-height:1;margin-bottom:.3rem}
+.album-card h3{font-size:clamp(1.3rem,2.6vw,1.7rem);margin-bottom:.2rem}
+.album-card .a-std{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--c,var(--teal));border-radius:999px;padding:.25em .9em;margin-bottom:1rem;align-self:flex-start}
+.album-card ul{list-style:none;display:flex;flex-direction:column;gap:.7rem;flex:1}
+.album-card li{display:flex;gap:.55em;font-weight:500;font-size:.96rem;line-height:1.6}
+.album-card li svg{flex:0 0 auto;width:20px;height:20px;margin-top:.25em;color:var(--c,var(--teal))}
+.album-card .a-foot{margin-top:1.3rem;padding-top:1rem;border-top:1px dashed var(--line);font-size:.86rem;color:var(--mute);font-weight:500;line-height:1.7}
+
+/* =================================================================
+   PRICE v2 (スタンダード基準＋オプション)
+   ================================================================= */
+.price-lead{text-align:center;max-width:32em;margin:0 auto clamp(2rem,4vw,2.8rem);color:var(--ink);font-weight:500;position:relative;z-index:2}
+.price-wrap{display:grid;grid-template-columns:1.25fr .9fr;gap:clamp(1.4rem,3vw,2rem);align-items:start;position:relative;z-index:2}
+.price-main{background:#fff;border-radius:26px;box-shadow:var(--shadow);overflow:hidden}
+.price-main .pm-top{background:var(--teal);color:#fff;padding:clamp(1.5rem,3vw,2rem) clamp(1.6rem,3vw,2.2rem);position:relative}
+.price-main .pm-badge{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.08em;background:rgba(255,255,255,.22);border-radius:999px;padding:.3em 1em;margin-bottom:.7rem}
+.price-main .pm-name{font-family:var(--f-jp);font-weight:700;font-size:1.2rem}
+.price-main .pm-price{font-family:var(--f-jp);font-weight:900;font-size:clamp(2.4rem,5vw,3.1rem);line-height:1.05;margin-top:.1rem}
+.price-main .pm-price small{font-weight:700;font-size:1rem;opacity:.92}
+.price-main .pm-cond{font-size:.86rem;opacity:.95;font-weight:500;margin-top:.4rem}
+.price-main .pm-body{padding:clamp(1.4rem,3vw,1.9rem) clamp(1.6rem,3vw,2.2rem)}
+.price-main .pm-body h4{font-size:.84rem;letter-spacing:.04em;color:var(--mute);font-weight:700;margin-bottom:.9rem}
+.price-main ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.price-main li{display:flex;gap:.55em;font-weight:500;font-size:.96rem;line-height:1.55}
+.price-main li svg{flex:0 0 auto;width:19px;height:19px;margin-top:.25em;color:var(--teal)}
+.price-main li b{font-weight:700;color:var(--teal-deep)}
+.price-note{margin-top:1.2rem;padding-top:1rem;border-top:1px dashed var(--line);font-size:.86rem;color:var(--mute);font-weight:500;line-height:1.7}
+
+.opt-card{background:#fff;border-radius:22px;box-shadow:var(--shadow-sm);padding:clamp(1.4rem,3vw,1.8rem)}
+.opt-card h4{font-family:var(--f-jp);font-weight:700;color:var(--ink);font-size:1.05rem;margin-bottom:.2rem}
+.opt-card .opt-sub{font-size:.82rem;color:var(--mute);font-weight:500;margin-bottom:1.1rem}
+.opt-row{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--line)}
+.opt-row:last-of-type{border-bottom:none}
+.opt-row .opt-name{font-weight:500;font-size:.94rem;line-height:1.5}
+.opt-row .opt-name small{display:block;font-size:.76rem;color:var(--mute);font-weight:500}
+.opt-row .opt-amt{flex:0 0 auto;font-family:var(--f-jp);font-weight:900;color:var(--teal-deep);font-size:1.05rem;white-space:nowrap}
+.opt-row .opt-amt small{font-weight:700;font-size:.74rem;color:var(--mute)}
+.price-reassure{grid-column:1/-1;margin-top:.4rem;background:rgba(46,155,181,.07);border:1px solid rgba(46,155,181,.2);border-radius:16px;padding:1.1rem 1.4rem;font-weight:500;font-size:.94rem;color:var(--ink);display:flex;gap:.7rem;align-items:flex-start;line-height:1.7}
+.price-reassure svg{flex:0 0 auto;width:22px;height:22px;color:var(--teal);margin-top:.15em}
+
+/* discount story banner */
+.price-story{max-width:880px;margin:0 auto clamp(1.8rem,4vw,2.6rem);background:linear-gradient(120deg,#FFF9F2,#FDF2E9);border:1px solid #F0D9C4;border-radius:20px;padding:clamp(1.3rem,3vw,1.9rem) clamp(1.4rem,3.5vw,2.2rem);position:relative;z-index:2}
+.price-story .ps-eyebrow{display:inline-flex;align-items:center;gap:.45em;font-family:var(--f-jp);font-weight:700;font-size:.92rem;color:var(--terra);margin-bottom:.55rem}
+.price-story .ps-eyebrow svg{width:18px;height:18px}
+.price-story p{font-weight:500;color:var(--ink);font-size:.95rem;line-height:1.95;margin-bottom:.55rem}
+.price-story p:last-child{margin-bottom:0}
+.price-story .ps-soft{color:var(--mute);font-size:.86rem;line-height:1.8}
+
+/* normal(struck) price on anchor */
+.pm-was{font-size:.88rem;opacity:.9;margin-bottom:.1rem}
+.pm-was s{text-decoration-thickness:1.5px}
+.pm-tag-now{display:inline-block;font-size:.7rem;font-weight:700;background:var(--honey);color:#5a4630;border-radius:999px;padding:.22em .8em;margin-left:.55em;vertical-align:middle;letter-spacing:.02em}
+
+/* price matrix */
+.price-table-wrap{position:relative;z-index:2;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:18px;box-shadow:var(--shadow-sm);margin-top:clamp(1.6rem,3.5vw,2.2rem)}
+.price-table{width:100%;border-collapse:collapse;background:#fff;min-width:680px;font-family:var(--f-jp)}
+.price-table th,.price-table td{padding:.6rem .55rem;text-align:center;border-bottom:1px solid var(--line)}
+.price-table thead th{background:var(--teal);color:#fff;font-weight:700;font-size:.84rem;border-bottom:none;position:sticky;top:0}
+.price-table tbody th{background:var(--paper-2);color:var(--teal-deep);font-weight:700;font-size:.86rem;white-space:nowrap;position:sticky;left:0;z-index:1}
+.price-table tbody td{font-weight:600;color:var(--ink);font-size:.88rem;white-space:nowrap}
+.price-table tbody tr:nth-child(even) td{background:rgba(0,0,0,.013)}
+.price-table tbody tr.row-star th{background:var(--honey);color:#5a4630}
+.price-table tbody tr.row-star td{background:rgba(240,193,99,.13)}
+.price-table tbody tr:hover td{background:rgba(46,155,181,.08)}
+.pt-legend{font-size:.82rem;color:var(--mute);font-weight:500;margin-top:.9rem;line-height:1.85;position:relative;z-index:2}
+.pt-legend .star{color:#caa24a;font-weight:700}
+
+/* デジタルアルバム */
+.digital{margin-top:clamp(2.4rem,5vw,3.4rem);position:relative;z-index:2}
+.digital-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem}
+.digital-head .d-icon{flex:0 0 auto;width:38px;height:38px;border-radius:11px;background:rgba(46,155,181,.1);display:grid;place-items:center;color:var(--teal-deep)}
+.digital-head .d-icon svg{width:21px;height:21px}
+.digital-head h3{font-size:clamp(1.2rem,2.6vw,1.5rem)}
+.digital-lead{font-weight:500;color:var(--ink);font-size:.95rem;line-height:1.85;max-width:42em;margin-bottom:1.2rem}
+.digital-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.3rem}
+.dg-card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:1.3rem 1.5rem}
+.dg-card .dg-tag{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.04em;color:#fff;background:var(--teal-deep);border-radius:999px;padding:.22em .9em;margin-bottom:.7rem}
+.dg-card.add .dg-tag{background:var(--honey);color:#5a4630}
+.dg-card h4{font-size:1.05rem;margin-bottom:.4rem}
+.dg-card p{font-weight:500;font-size:.9rem;color:var(--ink);line-height:1.75}
+.dg-card .dg-price{font-family:var(--f-jp);font-weight:900;color:var(--teal-deep);font-size:1.5rem;margin-top:.5rem}
+.dg-card .dg-price small{font-weight:700;font-size:.86rem;color:var(--mute)}
+.dg-card.add .dg-price{color:#9a7430}
+details.dg-table{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:.2rem}
+details.dg-table>summary{list-style:none;cursor:pointer;padding:1rem 1.3rem;font-family:var(--f-jp);font-weight:700;color:var(--teal-deep);font-size:.95rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+details.dg-table>summary::-webkit-details-marker{display:none}
+details.dg-table>summary::after{content:"▼";font-size:.7rem;color:var(--mute);transition:transform .25s}
+details.dg-table[open]>summary::after{transform:rotate(180deg)}
+details.dg-table .dg-table-inner{overflow-x:auto;-webkit-overflow-scrolling:touch;border-top:1px solid var(--line)}
+.price-table.digital-rate thead th{background:var(--taupe)}
+.price-table.digital-rate tbody th{color:var(--ink)}
+/* 短文の改行を均等化（孤立文字防止・画面幅に追従） */
+.hero-lead{text-wrap:balance;line-break:strict}
+.step p,.contact-head p,.price-reassure span,.dl-card p,.price-story p,.about-text p,.about-note p,.frow .lead,.price-lead,.digital-lead,.dg-card p{text-wrap:balance;word-break:auto-phrase;line-break:strict}
+
+/* =================================================================
+   FLOW — 納期ノート
+   ================================================================= */
+.deadline{max-width:760px;margin:clamp(2.2rem,4vw,3rem) auto 0;display:grid;grid-template-columns:1fr 1fr;gap:1rem;position:relative;z-index:2}
+.dl-card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-sm);padding:1.3rem 1.5rem}
+.dl-card .dl-tag{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.05em;color:#fff;border-radius:999px;padding:.25em .9em;margin-bottom:.6rem}
+.dl-card.before .dl-tag{background:var(--terra)} .dl-card.after .dl-tag{background:var(--teal)}
+.dl-card h4{font-size:1rem;margin-bottom:.3rem}
+.dl-card p{font-weight:500;font-size:.88rem;color:var(--ink);line-height:1.7}
+.dl-card b{color:var(--terra);font-weight:700}
+.dl-card.after b{color:var(--teal-deep)}
+
+/* =================================================================
+   TESTIMONIALS (お客様の声)
+   ================================================================= */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;position:relative;z-index:2}
+.testi-card{background:#fff;border-radius:20px;box-shadow:var(--shadow-sm);padding:1.6rem 1.6rem 1.4rem;position:relative;transition:transform .25s,box-shadow .25s}
+.testi-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.testi-card .quote-mark{font-family:var(--f-brush);color:var(--teal);opacity:.28;font-size:2.6rem;line-height:.6;display:block;margin-bottom:.2rem}
+.testi-body{font-weight:500;font-size:.95rem;color:var(--ink);line-height:1.85;min-height:5.4em}
+.testi-ph{color:var(--mute);font-style:normal;background:rgba(46,155,181,.06);border:1.5px dashed var(--teal);border-radius:12px;padding:.9rem 1rem;display:block;font-size:.86rem;line-height:1.7}
+.testi-meta{margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--line);display:flex;align-items:center;gap:.7rem}
+.testi-avatar{width:38px;height:38px;border-radius:50%;background:var(--c,var(--taupe));flex:0 0 auto;display:grid;place-items:center;color:#fff;font-family:var(--f-jp);font-weight:700;font-size:.95rem}
+.testi-name{font-family:var(--f-jp);font-weight:700;font-size:.9rem;color:var(--ink)}
+.testi-name small{display:block;font-size:.76rem;color:var(--mute);font-weight:500}
+
+/* =================================================================
+   HIBI (ご家族向け・おまけ)
+   ================================================================= */
+.hibi-inner{position:relative;overflow:hidden;border-radius:30px;background:linear-gradient(120deg,#fff 0%,var(--paper-2) 100%);border:1px solid var(--line);box-shadow:var(--shadow-sm);padding:clamp(1.8rem,4vw,3rem);display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(1.4rem,3vw,2.4rem);align-items:center;position:relative;z-index:2}
+.hibi-tag{display:inline-block;font-family:var(--f-script);color:var(--pink);font-size:1.6rem;line-height:1;margin-bottom:.3rem}
+.hibi-text h3{font-size:clamp(1.4rem,3vw,1.9rem);margin-bottom:.6rem}
+.hibi-text p{font-weight:500;color:var(--ink);font-size:.96rem;line-height:1.85}
+.hibi-text .hibi-sub{font-size:.84rem;color:var(--mute);margin-top:.6rem}
+.hibi-art{display:grid;place-items:center}
+.hibi-art .ph{width:100%;aspect-ratio:1/1;max-width:240px}
+
+/* =================================================================
+   COMPANY (会社概要)
+   ================================================================= */
+.company{background:var(--paper-2)}
+.company-card{max-width:760px;margin-inline:auto;background:#fff;border-radius:22px;box-shadow:var(--shadow-sm);overflow:hidden;position:relative;z-index:2}
+.company-card dl{margin:0}
+.company-row{display:grid;grid-template-columns:.42fr 1fr;gap:1rem;padding:1.05rem clamp(1.4rem,3vw,2rem);border-bottom:1px solid var(--line)}
+.company-row:last-child{border-bottom:none}
+.company-row dt{font-family:var(--f-jp);font-weight:700;color:var(--teal-deep);font-size:.92rem}
+.company-row dd{font-weight:500;color:var(--ink);font-size:.94rem;line-height:1.7}
+
+/* =================================================================
+   CONTACT FORM
+   ================================================================= */
+.contact-box{position:relative;overflow:hidden;border-radius:34px;background:var(--teal);color:#fff;padding:clamp(2.4rem,5vw,3.6rem) clamp(1.5rem,5vw,3rem);box-shadow:var(--shadow)}
+.contact-head{text-align:center;max-width:34em;margin:0 auto clamp(1.8rem,4vw,2.4rem);position:relative;z-index:2}
+.contact-head .brush{color:#fff;font-size:clamp(2rem,5vw,3rem);display:block;margin-bottom:.3rem}
+.contact-head h2{color:#fff;font-size:clamp(1.4rem,3.4vw,2rem);margin-bottom:.6rem}
+.contact-head p{opacity:.95;font-weight:500}
+.cform{max-width:560px;margin:0 auto;background:#fff;border-radius:22px;padding:clamp(1.5rem,4vw,2.2rem);box-shadow:var(--shadow);position:relative;z-index:2}
+.cfield{margin-bottom:1.1rem}
+.cfield:last-of-type{margin-bottom:0}
+.cfield label{display:block;font-family:var(--f-jp);font-weight:700;color:var(--ink);font-size:.9rem;margin-bottom:.4rem}
+.cfield label .req{color:var(--terra);font-size:.8rem;margin-left:.3em}
+.cfield label .opt{color:var(--mute);font-size:.76rem;font-weight:500;margin-left:.3em}
+.cfield input,.cfield textarea{width:100%;font-family:var(--f-jp);font-size:1rem;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:.8em 1em;transition:border-color .2s,box-shadow .2s}
+.cfield input:focus,.cfield textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(46,155,181,.15);background:#fff}
+.cfield textarea{resize:vertical;min-height:120px;line-height:1.7}
+.cform-submit{width:100%;margin-top:1.4rem;background:var(--teal);color:#fff;font-family:var(--f-jp);font-weight:700;font-size:1.05rem;border:none;border-radius:999px;padding:.95em;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:.5em;transition:transform .2s,box-shadow .2s,background .2s}
+.cform-submit:hover{transform:translateY(-2px);background:var(--teal-deep);box-shadow:0 14px 26px -12px rgba(46,155,181,.8)}
+.cform-submit:disabled{opacity:.6;cursor:default;transform:none}
+.cform-note{margin-top:1rem;font-size:.78rem;color:var(--mute);font-weight:500;text-align:center;line-height:1.6}
+.cform-msg{margin-top:1rem;border-radius:12px;padding:.9rem 1.1rem;font-weight:700;font-size:.92rem;text-align:center;display:none}
+.cform-msg.show{display:block}
+.cform-msg.ok{background:rgba(46,155,181,.12);color:var(--teal-deep)}
+.cform-msg.err{background:#FCEDE7;color:var(--terra)}
+.contact-alt{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;margin-top:clamp(1.6rem,3vw,2rem);position:relative;z-index:2}
+.contact-alt .btn-cream svg,.contact-alt .btn svg{width:19px;height:19px}
+.contact-foot{margin-top:1.8rem;text-align:center;font-family:var(--f-script);font-size:1.35rem;opacity:.95;position:relative;z-index:2}
+
+@media (max-width:900px){
+  .about-grid{grid-template-columns:1fr;gap:1.6rem}
+  .about-note{max-width:480px;margin-inline:auto}
+  .album-grid{grid-template-columns:1fr}
+  .price-wrap{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr;max-width:460px;margin-inline:auto}
+  .hibi-inner{grid-template-columns:1fr;text-align:center}
+  .hibi-art{order:-1}.hibi-art .ph{max-width:180px}
+  .deadline{grid-template-columns:1fr;max-width:440px}
+  .company-row{grid-template-columns:1fr;gap:.2rem;padding-block:.9rem}
+  .digital-cards{grid-template-columns:1fr}
+}
 </style>
 </head>
 
@@ -327,7 +530,7 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
       Happy Photograph
     </a>
     <nav class="nav-links" aria-label="メインメニュー">
-      <a href="#gallery">作品</a><a href="#features">特徴</a><a href="#pricing">料金</a><a href="#flow">流れ</a><a href="#faq">Q&amp;A</a>
+      <a href="#gallery">作品</a><a href="#features">特徴</a><a href="#album">なかみ</a><a href="#pricing">料金</a><a href="#flow">流れ</a><a href="#faq">Q&amp;A</a>
     </nav>
     <a href="#contact" class="btn btn-primary">資料請求</a>
   </div>
@@ -342,10 +545,10 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
   <svg class="splash float" viewBox="0 0 100 100" width="56" height="56" style="top:18%;right:10%;--r:0deg" aria-hidden="true"><path d="M50 6 C56 38 62 44 94 50 C62 56 56 62 50 94 C44 62 38 56 6 50 C38 44 44 38 50 6Z" fill="var(--honey)"/></svg>
 
   <div class="wrap hero-in">
-    <span class="eyebrow">卒園・卒業アルバム制作 — EST.2026 MIYAZAKI</span>
+    <span class="eyebrow">卒園・卒業アルバム制作</span>
     <h1><span class="brush">Smiles <span class="amp">&amp;</span> <span class="bl">Memories<svg class="bl-line" viewBox="0 0 300 26" preserveAspectRatio="none" aria-hidden="true"><path d="M6 16 C70 6 150 22 200 13 C240 6 270 16 294 11" fill="none" stroke="var(--teal)" stroke-width="10" stroke-linecap="round"/></svg></span></span></h1>
     <p class="hero-jp">その毎日を、まるごと一冊に。</p>
-    <p class="hero-lead lead">笑った顔も、ちょっと泣いた顔も。卒園・卒業のかけがえのない瞬間を、世界にひとつのアルバムに残します。</p>
+    <p class="hero-lead lead">笑った顔も、ちょっと泣いた顔も。卒園・卒業のかけがえのない瞬間を、ずっと残していきます。</p>
     <div class="hero-cta">
       <a href="#contact" class="btn btn-primary">無料で資料請求 <span class="arr">→</span></a>
       <a href="#flow" class="btn btn-ghost">制作の流れ</a>
@@ -394,14 +597,28 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
   </div>
 </section>
 
-<!-- ============================ INTRO NOTE ============================ -->
-<section class="intro">
+<!-- ============================ ABOUT ============================ -->
+<section class="sec about" id="about">
+  <svg class="splash float" viewBox="0 0 100 100" width="60" height="60" style="top:8%;right:7%;--r:0deg;opacity:.12" aria-hidden="true"><path d="M50 6 C56 38 62 44 94 50 C62 56 56 62 50 94 C44 62 38 56 6 50 C38 44 44 38 50 6Z" fill="var(--honey)"/></svg>
   <div class="wrap">
-    <aside class="note">
-      <span class="script">What's Happy Photograph?</span>
-      <h4>Happy Photograph って？</h4>
-      <p>宮崎・都城の小さな写真屋です。卒園・卒業のアルバムを、園や学校ごとに一冊ずつ手づくり。全国どこでもお届けし、九州エリアは出張撮影にもうかがいます。</p>
-    </aside>
+    <div class="sec-head">
+      <span class="brush">About Us</span>
+      <h2>わたしたちのこと。</h2>
+    </div>
+
+    <div class="about-grid">
+      <aside class="about-note">
+        <span class="script">What's Happy Photograph?</span>
+        <p>すべての子どもたちの、かけがえのない瞬間を「家族の宝もの」として形に残したい。そんな想いで、卒園・卒業のアルバムを一冊ずつ、心を込めて制作しています。</p>
+        <span class="about-sign">Happy Photograph</span>
+      </aside>
+
+      <div class="about-text">
+        <p>園での毎日は、あっという間に過ぎていきます。運動会でがんばる姿、お友だちと一緒に食べたおいしい給食、先生にくっついて離れなかった甘えん坊の朝。「その一つひとつを、ていねいに一冊のアルバムにまとめてお渡ししたい」という想いを原動力に頑張っています。</p>
+        <p>大きくなって、ふとページを開いた日に「あの頃の自分が、たしかにここにいた」と思い出せるように。</p>
+        <p class="about-spine">人の記憶の片隅に、そっと残るものを。</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -430,61 +647,119 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
   <div class="wrap">
     <div class="sec-head">
       <span class="brush">Why Us</span>
-      <h2>写真が、主役。</h2>
+      <h2>Happy Photograph の、4つの約束。</h2>
     </div>
 
-    <!-- feature 1 : 円形写真＋回る文字 -->
+    <!-- feature 1 : 丸投げOK（円形写真＋回る文字） -->
     <div class="frow">
       <div class="f-media">
         <div class="f-photo">
           <div class="ph sh-circle framed" style="--c:var(--terra)">
-            <img src="feature-1.jpg" alt="表紙デザイン" loading="lazy" onerror="this.remove()">
-            <span class="ph-label">ひょうし</span>
+            <img src="feature-1.jpg" alt="園から届いた写真" loading="lazy" onerror="this.remove()">
+            <span class="ph-label">おまかせ</span>
           </div>
           <svg class="ring-text" viewBox="0 0 200 200" aria-hidden="true">
             <defs><path id="cpf1" d="M100,100 m-84,0 a84,84 0 1,1 168,0 a84,84 0 1,1 -168,0"/></defs>
-            <text><textPath href="#cpf1" startOffset="0">ONE OF A KIND ★ 世界にひとつ ★ ONE OF A KIND ★ </textPath></text>
+            <text><textPath href="#cpf1" startOffset="0">NO SELECTION ★ まるごとおまかせ ★ </textPath></text>
           </svg>
         </div>
       </div>
       <div class="f-text">
         <span class="f-no">01</span>
-        <h3>世界にひとつの、デザイン。</h3>
-        <p class="lead">表紙からレイアウトまで、園や学校の“らしさ”に合わせて一冊まるごとオーダーメイド。テンプレートではない、同じ顔のないアルバムをお届けします。</p>
+        <h3>写真選びは、まるごとおまかせ。</h3>
+        <p class="lead">ふつうは園の先生が写真を選び、制作会社へ渡します。Happy Photograph は、その手間がかかりません。撮った写真をイベントごとに送るだけ。あとはこちらでセレクトして、一冊に仕上げます。</p>
       </div>
     </div>
 
-    <!-- feature 2 -->
+    <!-- feature 2 : 音声収録（料金込み） -->
     <div class="frow">
       <div class="f-media">
         <div class="f-photo">
           <div class="ph sh-arch framed" style="--c:var(--teal)">
-            <img src="feature-2.jpg" alt="撮影の様子" loading="lazy" onerror="this.remove()">
-            <span class="ph-label">さつえい</span>
+            <img src="feature-2.jpg" alt="音声つきページ" loading="lazy" onerror="this.remove()">
+            <span class="ph-label">おんせい</span>
           </div>
         </div>
       </div>
       <div class="f-text">
         <span class="f-no">02</span>
-        <h3>プロの、まなざし。</h3>
-        <p class="lead">運動会のがんばる顔も、給食のなにげない笑顔も。プロのカメラマンが、子どもたちの自然な“ふだん”をすくい取ります。九州エリアは出張撮影に対応。お手持ちの写真もお預かりできます。</p>
+        <h3>写真に、あの日の声も。</h3>
+        <p class="lead">ページのQRコードを読み取ると、子どもたちの声が流れます。「将来の夢」も、みんなで歌った歌も。写真と音で、当時の空気ごと残せます。他社ではオプション扱いのこの機能を、料金にふくめています。</p>
       </div>
     </div>
 
-    <!-- feature 3 -->
+    <!-- feature 3 : メンバーページ -->
     <div class="frow">
       <div class="f-media">
         <div class="f-photo">
           <div class="ph sh-blob2 framed" style="--c:var(--honey)">
-            <img src="feature-3.jpg" alt="製本" loading="lazy" onerror="this.remove()">
-            <span class="ph-label" style="color:var(--ink)">せいほん</span>
+            <img src="feature-3.jpg" alt="メンバーページ" loading="lazy" onerror="this.remove()">
+            <span class="ph-label" style="color:var(--ink)">メンバー</span>
           </div>
         </div>
       </div>
       <div class="f-text">
         <span class="f-no">03</span>
-        <h3>何十年先も、色あせない。</h3>
-        <p class="lead">大人になってページを開いても、あの頃のまま。退色に強い印刷と、めくるたび愛着がわく丈夫な製本で、ずっと残る一冊に仕上げます。</p>
+        <h3>一人ひとりが、主役のページ。</h3>
+        <p class="lead">1ページを2〜4分割。全身やバストアップの写真に、将来の夢や園で描いた絵を添えて。雑誌のような誌面で、「可愛い」と評判のページです。</p>
+      </div>
+    </div>
+
+    <!-- feature 4 : リーズナブル -->
+    <div class="frow">
+      <div class="f-media">
+        <div class="f-photo">
+          <div class="ph sh-blob framed" style="--c:var(--pink)">
+            <img src="feature-4.jpg" alt="アルバムと価格" loading="lazy" onerror="this.remove()">
+            <span class="ph-label">プライス</span>
+          </div>
+        </div>
+      </div>
+      <div class="f-text">
+        <span class="f-no">04</span>
+        <h3>この内容で、この価格。</h3>
+        <p class="lead">音声収録もケースも、必要なものはぜんぶ標準装備。あれこれ追加しなくても安心の、わかりやすい料金にしています。くわしくは料金プランをご覧ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ALBUM INSIDE ============================ -->
+<section class="sec album" id="album">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="brush">What's Inside</span>
+      <h2>アルバムは、2種類のページでできています。</h2>
+      <p class="sec-sub">「何が入るの？」が、ひと目でわかるように。</p>
+    </div>
+
+    <div class="album-grid">
+      <!-- メンバーページ -->
+      <div class="album-card" style="--c:var(--teal)">
+        <span class="a-kicker">Member Page</span>
+        <h3>メンバーページ</h3>
+        <span class="a-std">標準装備</span>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>1ページを2〜4分割した、一人ひとりの主役ページ</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>全身・バストアップの写真を掲載</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>将来の夢や、園で描いた絵などの思い出も</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>写真の切り取りは、クラス全員分が標準装備</li>
+        </ul>
+        <p class="a-foot">ご不要な場合は、イベントページへ振り替えできます。</p>
+      </div>
+
+      <!-- イベントページ -->
+      <div class="album-card" style="--c:var(--terra)">
+        <span class="a-kicker">Event Page</span>
+        <h3>イベントページ</h3>
+        <span class="a-std">行事の記録</span>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>運動会・発表会など、行事の写真</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>日常のなにげない一コマも</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>切り取り仕上げは、1イベント分が料金込み</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>追加したいイベントは、オプションで対応</li>
+        </ul>
+        <p class="a-foot">どの行事を切り取り仕上げにするかは、打ち合わせで決めます。</p>
       </div>
     </div>
   </div>
@@ -495,45 +770,158 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
   <div class="wrap">
     <div class="sec-head">
       <span class="brush">Price</span>
-      <h2>3つの、シンプルなプラン。</h2>
-      <!-- ▼ 価格はサンプルです。実額に差し替えてください ▼ -->
-      <p class="sec-sub">※ページ数・冊数による目安です。詳しくはお見積りいたします。</p>
+      <h2>料金のこと。</h2>
     </div>
 
-    <div class="plans">
-      <div class="plan plan-1">
-        <div class="plan-top"><div class="plan-name">ベーシック</div><div class="plan-price">¥1,200<small>〜 /冊（税込）</small></div></div>
-        <div class="plan-body"><ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>お預かり写真でデザイン</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>24ページ〜</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>表紙デザイン 1案</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>製本 or データを選択</li>
-        </ul></div>
-        <a href="#contact" class="btn btn-ghost">このプランで相談</a>
+    <p class="price-lead">必要なものは、ぜんぶ料金の中に。問い合わせなくても目安がわかるように、価格をぜんぶ載せています。</p>
+
+    <!-- 割引ストーリー -->
+    <div class="price-story">
+      <span class="ps-eyebrow"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg>いまは応援価格で承っております</span>
+      <p>一冊でも多く、子どもたちの手に残ってほしくて。いまはできるかぎりがんばって、お求めやすい価格でお作りしています。</p>
+      <p class="ps-soft">（状況が変われば、通常価格に戻ることがあります）</p>
+    </div>
+
+    <div class="price-wrap">
+      <!-- スタンダード例 -->
+      <div class="price-main">
+        <div class="pm-top">
+          <span class="pm-badge">STANDARD ／ よく選ばれるサイズ</span>
+          <div class="pm-name">20ページ・20〜24冊 の場合</div>
+          <p class="pm-was"><s>通常価格 ¥7,020 / 冊</s></p>
+          <div class="pm-price">¥6,660<small> /冊（税込）</small><span class="pm-tag-now">いまだけ特別価格</span></div>
+          <p class="pm-cond">下の早見表で、ページ数・冊数ごとの価格をぜんぶ確認できます。</p>
+        </div>
+        <div class="pm-body">
+          <h4>この価格に、ぜんぶ込み</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>写真は<b>まるごとおまかせ</b>（選別の手間なし）</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><b>音声収録 3本</b>（QRコードで再生）</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><b>イベント切り取り 1イベント分</b>（クラス人数分まで）</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><b>メンバーページ</b>（または イベントページへ振り替え）</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><b>アルバムケース付き</b>でお届け</li>
+          </ul>
+          <p class="price-note">※ ほかのページ数・冊数の価格は、すぐ下の早見表でご確認いただけます。</p>
+        </div>
       </div>
 
-      <div class="plan plan-2 recommend">
-        <div class="plan-top"><div class="plan-name">スタンダード</div><div class="plan-price">¥2,800<small>〜 /冊（税込）</small></div></div>
-        <div class="plan-body"><ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>出張撮影つき（九州エリア）</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>36ページ〜</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>表紙デザイン 3案</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>レイアウトおまかせ</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>写真セレクトもサポート</li>
-        </ul></div>
-        <a href="#contact" class="btn btn-primary">このプランで相談</a>
+      <!-- オプション -->
+      <div class="opt-card">
+        <h4>オプション</h4>
+        <p class="opt-sub">必要なぶんだけ、あとから追加できます。</p>
+        <div class="opt-row">
+          <div class="opt-name">音声収録 追加<small>1本ごと</small></div>
+          <div class="opt-amt">¥1,500<small> /本</small></div>
+        </div>
+        <div class="opt-row">
+          <div class="opt-name">イベント切り取り 追加<small>1イベント・クラス人数分まで</small></div>
+          <div class="opt-amt">¥5,000<small> /件</small></div>
+        </div>
+        <div class="opt-row">
+          <div class="opt-name">出張撮影<small>九州エリア</small></div>
+          <div class="opt-amt">¥20,000<small> /回</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 早見表（15冊以上） -->
+    <div class="price-table-wrap">
+      <table class="price-table">
+        <thead>
+          <tr><th>ページ数</th><th>15〜19冊</th><th>20〜24冊</th><th>25〜29冊</th><th>30冊〜</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>8ページ</th><td>¥3,860</td><td>¥3,160</td><td>¥2,740</td><td>¥2,460</td></tr>
+          <tr><th>10ページ</th><td>¥4,610</td><td>¥3,750</td><td>¥3,230</td><td>¥2,880</td></tr>
+          <tr><th>12ページ</th><td>¥5,360</td><td>¥4,330</td><td>¥3,710</td><td>¥3,290</td></tr>
+          <tr><th>14ページ</th><td>¥6,110</td><td>¥4,910</td><td>¥4,190</td><td>¥3,710</td></tr>
+          <tr><th>16ページ</th><td>¥6,860</td><td>¥5,490</td><td>¥4,670</td><td>¥4,120</td></tr>
+          <tr><th>18ページ</th><td>¥7,610</td><td>¥6,070</td><td>¥5,150</td><td>¥4,540</td></tr>
+          <tr class="row-star"><th>20ページ ★</th><td>¥8,360</td><td>¥6,660</td><td>¥5,630</td><td>¥4,950</td></tr>
+          <tr><th>22ページ</th><td>¥9,110</td><td>¥7,240</td><td>¥6,120</td><td>¥5,320</td></tr>
+          <tr><th>24ページ</th><td>¥9,860</td><td>¥7,820</td><td>¥6,600</td><td>¥5,780</td></tr>
+          <tr><th>26ページ</th><td>¥10,610</td><td>¥8,400</td><td>¥7,080</td><td>¥6,200</td></tr>
+          <tr><th>28ページ</th><td>¥11,360</td><td>¥8,980</td><td>¥7,560</td><td>¥6,610</td></tr>
+          <tr><th>30ページ</th><td>¥12,110</td><td>¥9,570</td><td>¥8,040</td><td>¥7,030</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pt-legend"><span class="star">★</span> よく選ばれるサイズです。／ 表の価格はすべて<b>税込・1冊あたりの特別価格</b>です。／ どの価格にも、写真おまかせ・音声収録3本・イベント切り取り1イベント分・メンバーページ・ケースが含まれます。</p>
+
+    <!-- 少部数（5〜14冊） -->
+    <div style="margin-top:clamp(1.8rem,4vw,2.4rem)">
+      <p style="font-family:var(--f-jp);font-weight:700;color:var(--ink);font-size:1rem;margin-bottom:.6rem">少部数（5〜14冊）の料金</p>
+      <div class="price-table-wrap" style="max-width:480px;margin-top:0">
+        <table class="price-table" style="min-width:360px">
+          <thead>
+            <tr><th>ページ数</th><th>5〜9冊</th><th>10〜14冊</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>8ページ</th><td>¥10,190</td><td>¥5,620</td></tr>
+            <tr><th>10ページ</th><td>¥12,340</td><td>¥6,740</td></tr>
+            <tr><th>12ページ</th><td>¥14,490</td><td>¥7,850</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pt-legend">※ 少部数は <b>5冊から・8〜12ページ</b> で承ります。下のデジタルアルバムもあわせてご検討ください。</p>
+    </div>
+
+    <!-- デジタルアルバム -->
+    <div class="digital">
+      <div class="digital-head">
+        <span class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M10.5 8.5l3.5 2.2-3.5 2.2z" fill="currentColor" stroke="none"/></svg></span>
+        <h3>デジタルアルバム</h3>
+      </div>
+      <p class="digital-lead">紙のアルバムと同じ誌面を、スマホやパソコンで楽しめるデジタル版です。どの園でもご注文いただけます。単品でも、紙アルバムへの追加でもOK。遠方のご家族との共有にも便利です。</p>
+
+      <div class="digital-cards">
+        <div class="dg-card">
+          <span class="dg-tag">単品で</span>
+          <h4>デジタル単品</h4>
+          <p>印刷代・ケース代がかからないぶん、制作費のみのお値段です。ご注文の家庭数で変わります。</p>
+          <div style="font-size:.82rem;color:var(--mute);font-weight:600;margin-top:.6rem">例：20ページ・20家庭なら</div>
+          <div class="dg-price">¥5,000<small> /家庭（税込）</small></div>
+        </div>
+        <div class="dg-card add">
+          <span class="dg-tag">紙アルバムに追加</span>
+          <h4>デジタル追加</h4>
+          <p>紙アルバムをご注文の園は、デジタル版も追加できます。制作は同じなので、お手頃な定額で。</p>
+          <div style="font-size:.82rem;color:var(--mute);font-weight:600;margin-top:.6rem">家庭数にかかわらず</div>
+          <div class="dg-price">¥500<small> /家庭（税込）</small></div>
+        </div>
       </div>
 
-      <div class="plan plan-3">
-        <div class="plan-top"><div class="plan-name">プレミアム</div><div class="plan-price">お見積り<small> / フルオーダー</small></div></div>
-        <div class="plan-body"><ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>撮影＋ムービー制作</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>ページ数 自由</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>個別ページ・特別装丁</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>記念グッズ オプション</li>
-        </ul></div>
-        <a href="#contact" class="btn btn-ghost">このプランで相談</a>
-      </div>
+      <details class="dg-table">
+        <summary>デジタル単品の早見表（家庭数別）を見る</summary>
+        <div class="dg-table-inner">
+          <table class="price-table digital-rate">
+            <thead>
+              <tr><th>ページ数</th><th>5〜9家庭</th><th>10〜14家庭</th><th>15〜19家庭</th><th>20〜24家庭</th><th>25〜29家庭</th><th>30家庭〜</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>8ページ</th><td>¥8,000</td><td>¥4,000</td><td>¥2,670</td><td>¥2,000</td><td>¥1,600</td><td>¥1,340</td></tr>
+              <tr><th>10ページ</th><td>¥10,000</td><td>¥5,000</td><td>¥3,340</td><td>¥2,500</td><td>¥2,000</td><td>¥1,670</td></tr>
+              <tr><th>12ページ</th><td>¥12,000</td><td>¥6,000</td><td>¥4,000</td><td>¥3,000</td><td>¥2,400</td><td>¥2,000</td></tr>
+              <tr><th>14ページ</th><td>¥14,000</td><td>¥7,000</td><td>¥4,670</td><td>¥3,500</td><td>¥2,800</td><td>¥2,340</td></tr>
+              <tr><th>16ページ</th><td>¥16,000</td><td>¥8,000</td><td>¥5,340</td><td>¥4,000</td><td>¥3,200</td><td>¥2,670</td></tr>
+              <tr><th>18ページ</th><td>¥18,000</td><td>¥9,000</td><td>¥6,000</td><td>¥4,500</td><td>¥3,600</td><td>¥3,000</td></tr>
+              <tr class="row-star"><th>20ページ ★</th><td>¥20,000</td><td>¥10,000</td><td>¥6,670</td><td>¥5,000</td><td>¥4,000</td><td>¥3,340</td></tr>
+              <tr><th>22ページ</th><td>¥22,000</td><td>¥11,000</td><td>¥7,340</td><td>¥5,500</td><td>¥4,400</td><td>¥3,670</td></tr>
+              <tr><th>24ページ</th><td>¥24,000</td><td>¥12,000</td><td>¥8,000</td><td>¥6,000</td><td>¥4,800</td><td>¥4,000</td></tr>
+              <tr><th>26ページ</th><td>¥26,000</td><td>¥13,000</td><td>¥8,670</td><td>¥6,500</td><td>¥5,200</td><td>¥4,340</td></tr>
+              <tr><th>28ページ</th><td>¥28,000</td><td>¥14,000</td><td>¥9,340</td><td>¥7,000</td><td>¥5,600</td><td>¥4,670</td></tr>
+              <tr><th>30ページ</th><td>¥30,000</td><td>¥15,000</td><td>¥10,000</td><td>¥7,500</td><td>¥6,000</td><td>¥5,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <p class="pt-legend" style="margin-top:.7rem">※ 価格は税込・1家庭あたり。内容は紙アルバムと同じ誌面です。</p>
+    </div>
+
+    <!-- 安心の一文 -->
+    <div class="price-reassure" style="margin-top:clamp(1.6rem,3.5vw,2.2rem)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+      <span>ご予算やご希望に合わせて、最適なかたちをご提案します。お問い合わせいただいても、しつこい営業はいたしません。まずはお気軽にご相談ください。</span>
     </div>
   </div>
 </section>
@@ -543,15 +931,67 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
   <div class="wrap">
     <div class="sec-head">
       <span class="brush">How It Works</span>
-      <h2>ご相談から納品まで、5ステップ。</h2>
+      <h2>ご相談から、お届けまで。</h2>
     </div>
 
     <div class="steps">
-      <div class="step"><div class="step-circle" style="--sc:var(--terra)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 4H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3v3.2L11.6 16H20a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1Z"/><circle cx="9" cy="10" r=".5" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r=".5" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r=".5" fill="currentColor" stroke="none"/></svg><span class="step-no">1</span></div><h3>ご相談・資料請求</h3><p>まずはお気軽にご連絡を。ご要望をうかがいます。</p></div>
-      <div class="step"><div class="step-circle" style="--sc:var(--honey)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3v5h5"/><path d="M8.5 13h7M8.5 16.5h5"/></svg><span class="step-no">2</span></div><h3>お見積り・ご契約</h3><p>内容に合わせたプランとお見積りをご提案します。</p></div>
-      <div class="step"><div class="step-circle" style="--sc:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h3l1.5-2h9L18 8h3v11H3z"/><circle cx="12" cy="13" r="3.4"/></svg><span class="step-no">3</span></div><h3>撮影・写真集め</h3><p>行事や日常を撮影。お手持ちの写真もお預かりします。</p></div>
-      <div class="step"><div class="step-circle" style="--sc:var(--taupe)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 4.5l3 3L8 19l-4 1 1-4z"/><path d="M14.3 6.7l3 3"/></svg><span class="step-no">4</span></div><h3>デザイン・編集</h3><p>“らしさ”を込めてレイアウト。世界にひとつの形に。</p></div>
-      <div class="step"><div class="step-circle" style="--sc:var(--pink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11h14v9H5z"/><path d="M4 8h16v3H4z"/><path d="M12 8v12"/><path d="M12 8C10 8 7 7.6 8 5.6 8.6 4.4 11 5 12 8Z"/><path d="M12 8C14 8 17 7.6 16 5.6 15.4 4.4 13 5 12 8Z"/></svg><span class="step-no">5</span></div><h3>校正・納品</h3><p>ご確認・修正のうえ、心を込めてお届けします。</p></div>
+      <div class="step"><div class="step-circle" style="--sc:var(--terra)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 4H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3v3.2L11.6 16H20a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1Z"/><circle cx="9" cy="10" r=".5" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r=".5" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r=".5" fill="currentColor" stroke="none"/></svg><span class="step-no">1</span></div><h3>ご相談・お申し込み</h3><p>まずはお気軽にご連絡を。ご要望をうかがいます。</p></div>
+      <div class="step"><div class="step-circle" style="--sc:var(--honey)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3v5h5"/><path d="M8.5 13h7M8.5 16.5h5"/></svg><span class="step-no">2</span></div><h3>お打ち合わせ</h3><p>ページ割り・イベント内容・メンバーページの有無を決めます。</p></div>
+      <div class="step"><div class="step-circle" style="--sc:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M5 15v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3"/></svg><span class="step-no">3</span></div><h3>写真の受付</h3><p>専用システムから、イベントごとに写真を送信していただきます。</p></div>
+      <div class="step"><div class="step-circle" style="--sc:var(--taupe)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 4.5l3 3L8 19l-4 1 1-4z"/><path d="M14.3 6.7l3 3"/></svg><span class="step-no">4</span></div><h3>デザイン制作</h3><p>最終データをいただいてから、一冊ずつ心を込めて仕上げます。</p></div>
+      <div class="step"><div class="step-circle" style="--sc:var(--pink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.2l2.3 2.3 4.7-4.7"/></svg><span class="step-no">5</span></div><h3>校了・お振込み</h3><p>最終確認（校了）をいただいたら、お振込みをご案内します。</p></div>
+      <div class="step"><div class="step-circle" style="--sc:var(--teal-deep)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg><span class="step-no">6</span></div><h3>印刷・お届け</h3><p>ご入金の確認後に印刷。約10日でお届けします（ヤマト便）。</p></div>
+    </div>
+
+    <div class="deadline">
+      <div class="dl-card before">
+        <span class="dl-tag">式の前にお渡し</span>
+        <h4>卒園式・卒業式の前に渡したい</h4>
+        <p>写真データのお預かりは <b>12月31日まで</b>。式の前に、お手元へお届けします。</p>
+      </div>
+      <div class="dl-card after">
+        <span class="dl-tag">式の後にお渡し</span>
+        <h4>卒園式・卒業式の後に渡したい</h4>
+        <p>式当日のデータをお預かりしてから、<b>約2ヶ月後</b> のお渡しです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TESTIMONIALS ============================ -->
+<section class="sec" id="voice">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="brush">Voice</span>
+      <h2>お客様の声。</h2>
+      <p class="sec-sub">ご利用くださった園・保護者のみなさまから。</p>
+    </div>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <span class="quote-mark">&ldquo;</span>
+        <div class="testi-body"><span class="testi-ph">［お客様の声がここに入ります。実際にいただいたご感想を掲載予定です。］</span></div>
+        <div class="testi-meta">
+          <div class="testi-avatar" style="--c:var(--teal)">園</div>
+          <div class="testi-name">◯◯保育園 さま<small>園長先生</small></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <span class="quote-mark">&ldquo;</span>
+        <div class="testi-body"><span class="testi-ph">［お客様の声がここに入ります。実際にいただいたご感想を掲載予定です。］</span></div>
+        <div class="testi-meta">
+          <div class="testi-avatar" style="--c:var(--honey)">母</div>
+          <div class="testi-name">保護者 さま<small>年長クラス</small></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <span class="quote-mark">&ldquo;</span>
+        <div class="testi-body"><span class="testi-ph">［お客様の声がここに入ります。実際にいただいたご感想を掲載予定です。］</span></div>
+        <div class="testi-meta">
+          <div class="testi-avatar" style="--c:var(--terra)">校</div>
+          <div class="testi-name">◯◯スイミング さま<small>ご担当者</small></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -565,41 +1005,172 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
     </div>
 
     <div class="faq-list">
-      <details class="faq-item" open><summary><span class="faq-q">Q</span>制作期間はどのくらいですか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">内容によりますが、撮影開始からおよそ3〜6ヶ月が目安です。卒園・卒業の時期から逆算して、余裕をもったスケジュールをご提案します。</div></details>
-      <details class="faq-item"><summary><span class="faq-q">Q</span>遠方でも依頼できますか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">アルバム制作は全国どこでも対応しています。出張撮影は九州エリアを中心にうけたまわっています（その他の地域はご相談ください）。</div></details>
-      <details class="faq-item"><summary><span class="faq-q">Q</span>自分たちで撮った写真でも大丈夫？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">もちろんです。お預かりした写真だけでのデザイン制作も承ります。スマホで撮った写真でも大丈夫です。</div></details>
-      <details class="faq-item"><summary><span class="faq-q">Q</span>何冊から注文できますか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">少部数からご相談いただけます。クラス単位・園単位など、まずはご希望をお聞かせください。</div></details>
-      <details class="faq-item"><summary><span class="faq-q">Q</span>途中でデザインの変更はできますか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">校正の段階で、ご確認と修正のお時間を設けています。納得いただける一冊になるまで、いっしょに仕上げます。</div></details>
+      <details class="faq-item" open><summary><span class="faq-q">Q</span>卒園だけでなく、卒業のアルバムもお願いできますか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">はい。保育園・幼稚園の卒園、小学校の卒業、習い事やスポーツチームの卒業に対応しています。中学・高校などの卒業アルバムにつきましては、ご相談ください。</div></details>
+      <details class="faq-item"><summary><span class="faq-q">Q</span>写真撮影はしてもらえますか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">基本は、園にある写真データを送っていただいて制作します。撮影をご希望の場合は、オプションの出張撮影をご利用いただけます。なお、現時点は九州エリアのみの対応です。</div></details>
+      <details class="faq-item"><summary><span class="faq-q">Q</span>メンバーページは必ず入りますか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">標準仕様の中に入っております。ご不要な場合は、イベントページへ振り替えできます。どちらにするかは打ち合わせで決めましょう。</div></details>
+      <details class="faq-item"><summary><span class="faq-q">Q</span>園の写真はどうやって送ったらいいですか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">専用の写真受付システムから、イベントごとに送信していただきます。スマホで撮影した写真でも問題ございません。お預かりしたデータは、アルバム制作のために大切に取り扱います。</div></details>
+      <details class="faq-item"><summary><span class="faq-q">Q</span>いつ頃までに相談すればいいですか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">制作依頼数によってご依頼をお断りする場合もございます。まだ予定が決まっていなくても構いませんので、ご検討の段階でご一報いただけますと大変ありがたいです。</div></details>
+      <details class="faq-item"><summary><span class="faq-q">Q</span>いつ頃までに写真を送ればいいですか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">卒園式や卒業式の日にアルバムをお渡しされる場合は、12月31日までに全てのデータ送信をお願いします。4月以降にお渡しされる場合は、全データ送信から約2ヶ月後の納品です。</div></details>
+      <details class="faq-item"><summary><span class="faq-q">Q</span>対応エリアはどこまでですか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">アルバム制作は全国対応でございます。現在、出張撮影は九州エリアのみのご対応です。（全国対応準備中。暫くお待ちください）</div></details>
+      <details class="faq-item"><summary><span class="faq-q">Q</span>部数の追加はできますか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">お振込み前まででしたら対応可能でございます。なお、冊数変更に伴い一冊あたりの金額や合計金額も変わりますため、改めて請求書を発行させていただきます。また、お振込後の追加は別途注文となります。データ保存期間（納品後3ヶ月間）内でしたら一冊からご注文が可能でございます。一冊あたりの価格は少し割高になります。</div></details>
+      <details class="faq-item"><summary><span class="faq-q">Q</span>お支払い方法は？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">銀行振込をお願いしています。校了のお返事を頂いたあと、ご入金確認が取れましたら印刷工程へと進みます。</div></details>
+      <details class="faq-item"><summary><span class="faq-q">Q</span>問い合わせたら、しつこく営業されませんか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">いたしません。貴重なお時間を大切に使っていただきたいという想いで、金額やページ仕様について、なるべく詳しく情報開示し、ある程度の内容が分かるように努めております。とはいえ、全てのケースを想定できていない面もございます。ご不明な点や気になることがございましたら、お気軽にお問い合わせください。フォームからのお問い合わせにはメールでお返事いたします。</div></details>
     </div>
   </div>
 </section>
 
-<!-- ============================ CTA ============================ -->
-<section class="cta-wrap" id="contact">
+<!-- ============================ HIBI（ご家族向け・おまけ） ============================ -->
+<section class="sec" id="hibi">
   <div class="wrap">
-    <div class="cta">
-      <svg class="splash" viewBox="0 0 200 200" width="160" height="160" style="top:-50px;right:-30px;opacity:.18" aria-hidden="true"><path d="M104 16 C146 10 184 44 186 88 C188 128 160 156 124 172 C92 186 46 180 26 146 C8 116 16 70 42 46 C60 28 78 21 104 16 Z" fill="#fff"/></svg>
-
-      <!-- 切り抜き写真②（任意・不要ならこの div ごと削除） -->
-      <div class="cta-cutout cutout-slot">
-        <img src="cta-cutout.png" alt="子どもの写真" class="cutout"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
-        <div class="cutout-ph">
-          切り抜き②<small>背景透過PNG<br>cta-cutout.png</small>
+    <div class="hibi-inner">
+      <div class="hibi-text">
+        <span class="hibi-tag">For Family</span>
+        <h3>ご家族向けに、「Hibi」も。</h3>
+        <p>七五三や誕生日、なんでもない休日の一コマ。ご家族の日常を撮影して、一冊のアルバムにまとめるサービスです。卒園・卒業のアルバムづくりから生まれた、もうひとつのかたち。</p>
+        <p class="hibi-sub">※ ご家族向けの撮影・アルバム制作（副次サービス）。詳しくはお問い合わせください。</p>
+      </div>
+      <div class="hibi-art">
+        <div class="ph sh-blob framed" style="--c:var(--pink)">
+          <img src="hibi.jpg" alt="ご家族の写真" loading="lazy" onerror="this.remove()">
+          <span class="ph-label">ひび</span>
         </div>
       </div>
-
-      <span class="brush">Let's make it together!</span>
-      <h2>いっしょに、宝物をつくりませんか？</h2>
-      <p class="cta-sub lead">ご相談・お見積りは無料です。まずはお気軽にどうぞ。</p>
-      <div class="btns">
-        <a href="mailto:info@happyphotograph.com" class="btn btn-cream">無料で資料請求 <span class="arr">→</span></a>
-        <a href="mailto:info@happyphotograph.com" class="btn btn-ghost" style="color:#fff;border-color:#fff">メールで問い合わせ</a>
-      </div>
-      <p class="cta-foot">記憶の片隅に、そっと残るものを。</p>
     </div>
   </div>
 </section>
+
+<!-- ============================ COMPANY（会社概要） ============================ -->
+<section class="sec company" id="company">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="brush">Company</span>
+      <h2>会社概要</h2>
+    </div>
+    <div class="company-card">
+      <dl>
+        <div class="company-row"><dt>屋号</dt><dd>Happy Photograph（ハッピーフォトグラフ）</dd></div>
+        <div class="company-row"><dt>運営会社</dt><dd>H.P.canvas株式会社</dd></div>
+        <div class="company-row"><dt>代表</dt><dd>大峯 しをり</dd></div>
+        <div class="company-row"><dt>所在地</dt><dd>宮崎県都城市</dd></div>
+        <div class="company-row"><dt>対応エリア</dt><dd>アルバム制作：全国（エリアフリー）／出張撮影：九州エリア</dd></div>
+        <div class="company-row"><dt>事業内容</dt><dd>卒園・卒業アルバムの制作・編集／ご家族向けアルバム制作（Hibi）／出張撮影（九州エリア・オプション）</dd></div>
+        <div class="company-row"><dt>お支払い</dt><dd>銀行振込（校了・ご入金確認後に印刷）</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACT（お問い合わせ） ============================ -->
+<section class="cta-wrap" id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <svg class="splash" viewBox="0 0 200 200" width="170" height="170" style="top:-50px;right:-30px;opacity:.16" aria-hidden="true"><path d="M104 16 C146 10 184 44 186 88 C188 128 160 156 124 172 C92 186 46 180 26 146 C8 116 16 70 42 46 C60 28 78 21 104 16 Z" fill="#fff"/></svg>
+
+      <div class="contact-head">
+        <span class="brush">Contact</span>
+        <h2>いっしょに、宝物をつくりませんか？</h2>
+        <p class="lead" style="color:#fff">ご相談・お見積りは無料です。気になることだけでも、お気軽にどうぞ。しつこい営業はいたしません。</p>
+      </div>
+
+      <form class="cform" id="contactForm" novalidate>
+        <div class="cfield">
+          <label for="cf-name">お名前 <span class="req">必須</span></label>
+          <input type="text" id="cf-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="cfield">
+          <label for="cf-email">メールアドレス <span class="req">必須</span></label>
+          <input type="email" id="cf-email" name="email" autocomplete="email" required>
+        </div>
+        <div class="cfield">
+          <label for="cf-org">園名・お立場 <span class="opt">任意</span></label>
+          <input type="text" id="cf-org" name="org" placeholder="例：◯◯保育園 園長 ／ 保護者">
+        </div>
+        <div class="cfield">
+          <label for="cf-tel">お電話番号 <span class="opt">任意</span></label>
+          <input type="tel" id="cf-tel" name="tel" autocomplete="tel">
+        </div>
+        <div class="cfield">
+          <label for="cf-msg">ご相談内容 <span class="opt">任意</span></label>
+          <textarea id="cf-msg" name="message" placeholder="ご検討中の内容・ご質問など、なんでもどうぞ。"></textarea>
+        </div>
+        <button type="submit" class="cform-submit" id="cf-submit">この内容で送信する <span class="arr">→</span></button>
+        <p class="cform-note">いただいた内容は、ご相談への返信にのみ使用します。</p>
+        <div class="cform-msg" id="cf-result" role="status" aria-live="polite"></div>
+      </form>
+
+      <div class="contact-alt">
+        <a href="mailto:info@happyphotograph.com" class="btn btn-ghost" style="color:#fff;border-color:#fff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          メールで問い合わせ
+        </a>
+      </div>
+
+      <p class="contact-foot">記憶の片隅に、そっと残るものを。</p>
+    </div>
+  </div>
+</section>
+<!-- ============================ CONTACT FORM SCRIPT ============================ -->
+<script>
+/* お問い合わせフォーム（FormSubmit 経由でメール送信）
+   送信先メール：info@happyphotograph.com
+   ※ 初回の1通だけ、FormSubmit から「有効化リンク」のメールが届きます。
+     そのリンクを一度クリックすれば、以降は普通に受信できます（設定はこれだけ）。 */
+(function(){
+  var MAIL = "info@happyphotograph.com"; // ← 送信先メールアドレス
+  var ENDPOINT = "https://formsubmit.co/ajax/" + MAIL;
+
+  var form   = document.getElementById("contactForm");
+  if(!form) return;
+  var btn    = document.getElementById("cf-submit");
+  var result = document.getElementById("cf-result");
+  var $ = function(id){ return document.getElementById(id); };
+
+  function show(msg, ok){
+    result.textContent = msg;
+    result.className = "cform-msg show " + (ok ? "ok" : "err");
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var name  = $("cf-name").value.trim();
+    var email = $("cf-email").value.trim();
+    if(!name || !email){
+      show("お名前とメールアドレスをご入力ください。", false);
+      return;
+    }
+    var payload = {
+      "お名前":        name,
+      "メールアドレス": email,
+      "園名・お立場":   $("cf-org").value.trim(),
+      "お電話番号":     $("cf-tel").value.trim(),
+      "ご相談内容":     $("cf-msg").value.trim(),
+      "_subject":  "【Happy Photograph】サイトからのお問い合わせ",
+      "_template": "table",
+      "_captcha":  "false"
+    };
+
+    btn.disabled = true;
+    btn.textContent = "送信中…";
+    fetch(ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(function(r){ return r.json(); }).then(function(res){
+      if(res && (res.success === "true" || res.success === true)){
+        form.reset();
+        show("送信しました。2〜3日以内にご返信します。ありがとうございます。", true);
+      } else {
+        show("送信に失敗しました。お手数ですが info@happyphotograph.com までメールでご連絡ください。", false);
+      }
+    }).catch(function(){
+      show("送信に失敗しました。お手数ですが info@happyphotograph.com までメールでご連絡ください。", false);
+    }).finally(function(){
+      btn.disabled = false;
+      btn.innerHTML = 'この内容で送信する <span class="arr">→</span>';
+    });
+  });
+})();
+</script>
 
 </main>
 
@@ -613,7 +1184,7 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
         <p class="foot-sub">by H.P.canvas株式会社（宮崎県都城市）</p>
       </div>
       <nav class="foot-links" aria-label="フッターメニュー">
-        <a href="#gallery">作品</a><a href="#features">アルバムの特徴</a><a href="#pricing">料金プラン</a><a href="#flow">制作の流れ</a><a href="#contact">お問い合わせ</a>
+        <a href="#gallery">作品</a><a href="#features">アルバムの特徴</a><a href="#album">アルバムのなかみ</a><a href="#pricing">料金プラン</a><a href="#flow">制作の流れ</a><a href="#company">会社概要</a><a href="#contact">お問い合わせ</a>
         <p class="foot-contact">📧 info@happyphotograph.com</p>
       </nav>
     </div>
