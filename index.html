@@ -12,16 +12,16 @@
 <!--
 ======================================================================
   写真の入れ方（このファイル1つで完結します）
-  ① このHTMLと同じ場所に「images」フォルダを作る
+  ① このHTML（index.html）と同じ場所に、写真を置くだけ。フォルダは不要。
   ② 下記の名前でファイルを置く（または各 <img src="..."> を書き換える）
 
   ▼ 通常写真（枠あり・形に沿ってトリミングされます）
-     images/hero-left.jpg  /  images/hero-right.jpg
-     images/gallery-1〜4.jpg  /  images/feature-1〜3.jpg  /  images/step-1〜5.jpg
+     hero-left.jpg  /  hero-right.jpg
+     gallery-1〜4.jpg  /  feature-1〜3.jpg  /  step-1〜5.jpg
 
   ▼ 切り抜き写真（背景透過PNG・最大2枚・影が形に沿って浮きます）
-     images/hero-cutout.png …トップの主役（良い表情・ポーズの1枚）
-     images/cta-cutout.png  …CTA（任意。不要なら該当ブロックを削除）
+     hero-cutout.png …トップの主役（良い表情・ポーズの1枚）
+     cta-cutout.png  …CTA（任意。不要なら該当ブロックを削除）
 
   ※ ファイルが無い間は、色のプレースホルダー（仮）が表示されます。
   ※ 写真を入れると仮の色は消え、写真だけになります（フチは残りません）。
@@ -357,24 +357,24 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
 
     <!-- 左：枠あり写真 -->
     <figure class="hp hp-1"><div class="ph sh-arch framed" style="--c:var(--honey)">
-      <img src="images/hero-left.jpg" alt="運動会の様子" onerror="this.remove()">
+      <img src="hero-left.jpg" alt="運動会の様子" onerror="this.remove()">
       <span class="ph-label" style="color:var(--ink)">うんどうかい</span>
     </div></figure>
 
     <!-- 中央：切り抜き写真①（主役・背景透過PNG） -->
     <div class="hp hero-cutout cutout-slot">
-      <img src="images/hero-cutout.png" alt="主役の子どもの写真" class="cutout"
+      <img src="hero-cutout.png" alt="主役の子どもの写真" class="cutout"
            onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
       <div class="cutout-ph">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h3l1.5-2h9L18 8h3v11H3z"/><circle cx="12" cy="13" r="3.4"/></svg>
         主役の切り抜き写真
-        <small>背景透過PNG<br>images/hero-cutout.png</small>
+        <small>背景透過PNG<br>hero-cutout.png</small>
       </div>
     </div>
 
     <!-- 右：枠あり写真 -->
     <figure class="hp hp-3"><div class="ph sh-arch framed" style="--c:var(--taupe)">
-      <img src="images/hero-right.jpg" alt="卒園式の様子" onerror="this.remove()">
+      <img src="hero-right.jpg" alt="卒園式の様子" onerror="this.remove()">
       <span class="ph-label">そつえんしき</span>
     </div></figure>
 
@@ -414,10 +414,10 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
     </div>
 
     <div class="gallery">
-      <figure class="gitem g1"><div class="ph sh-soft framed" style="--c:var(--honey)"><img src="images/gallery-1.jpg" alt="運動会" loading="lazy" onerror="this.remove()"><span class="ph-label" style="color:var(--ink)">うんどうかい</span></div><figcaption class="gcap">運動会</figcaption></figure>
-      <figure class="gitem g2"><div class="ph sh-circle framed" style="--c:var(--teal)"><img src="images/gallery-2.jpg" alt="お友だち" loading="lazy" onerror="this.remove()"><span class="ph-label">なかよし</span></div><figcaption class="gcap">お友だち</figcaption></figure>
-      <figure class="gitem g3"><div class="ph sh-arch framed" style="--c:var(--terra)"><img src="images/gallery-3.jpg" alt="給食の時間" loading="lazy" onerror="this.remove()"><span class="ph-label">きゅうしょく</span></div><figcaption class="gcap">給食の時間</figcaption></figure>
-      <figure class="gitem g4"><div class="ph sh-blob framed" style="--c:var(--taupe)"><img src="images/gallery-4.jpg" alt="おさんぽ" loading="lazy" onerror="this.remove()"><span class="ph-label">おさんぽ</span></div><figcaption class="gcap">おさんぽ</figcaption></figure>
+      <figure class="gitem g1"><div class="ph sh-soft framed" style="--c:var(--honey)"><img src="gallery-1.jpg" alt="運動会" loading="lazy" onerror="this.remove()"><span class="ph-label" style="color:var(--ink)">うんどうかい</span></div><figcaption class="gcap">運動会</figcaption></figure>
+      <figure class="gitem g2"><div class="ph sh-circle framed" style="--c:var(--teal)"><img src="gallery-2.jpg" alt="お友だち" loading="lazy" onerror="this.remove()"><span class="ph-label">なかよし</span></div><figcaption class="gcap">お友だち</figcaption></figure>
+      <figure class="gitem g3"><div class="ph sh-arch framed" style="--c:var(--terra)"><img src="gallery-3.jpg" alt="給食の時間" loading="lazy" onerror="this.remove()"><span class="ph-label">きゅうしょく</span></div><figcaption class="gcap">給食の時間</figcaption></figure>
+      <figure class="gitem g4"><div class="ph sh-blob framed" style="--c:var(--taupe)"><img src="gallery-4.jpg" alt="おさんぽ" loading="lazy" onerror="this.remove()"><span class="ph-label">おさんぽ</span></div><figcaption class="gcap">おさんぽ</figcaption></figure>
     </div>
   </div>
 </section>
@@ -437,7 +437,7 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
       <div class="f-media">
         <div class="f-photo">
           <div class="ph sh-circle framed" style="--c:var(--terra)">
-            <img src="images/feature-1.jpg" alt="表紙デザイン" loading="lazy" onerror="this.remove()">
+            <img src="feature-1.jpg" alt="表紙デザイン" loading="lazy" onerror="this.remove()">
             <span class="ph-label">ひょうし</span>
           </div>
           <svg class="ring-text" viewBox="0 0 200 200" aria-hidden="true">
@@ -458,7 +458,7 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
       <div class="f-media">
         <div class="f-photo">
           <div class="ph sh-arch framed" style="--c:var(--teal)">
-            <img src="images/feature-2.jpg" alt="撮影の様子" loading="lazy" onerror="this.remove()">
+            <img src="feature-2.jpg" alt="撮影の様子" loading="lazy" onerror="this.remove()">
             <span class="ph-label">さつえい</span>
           </div>
         </div>
@@ -475,7 +475,7 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
       <div class="f-media">
         <div class="f-photo">
           <div class="ph sh-blob2 framed" style="--c:var(--honey)">
-            <img src="images/feature-3.jpg" alt="製本" loading="lazy" onerror="this.remove()">
+            <img src="feature-3.jpg" alt="製本" loading="lazy" onerror="this.remove()">
             <span class="ph-label" style="color:var(--ink)">せいほん</span>
           </div>
         </div>
@@ -546,11 +546,11 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
     </div>
 
     <div class="steps">
-      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--terra)"><img src="images/step-1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">1</span></div><h3>ご相談・資料請求</h3><p>まずはお気軽にご連絡を。ご要望をうかがいます。</p></div>
-      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--honey)"><img src="images/step-2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">2</span></div><h3>お見積り・ご契約</h3><p>内容に合わせたプランとお見積りをご提案します。</p></div>
-      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--teal)"><img src="images/step-3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">3</span></div><h3>撮影・写真集め</h3><p>行事や日常を撮影。お手持ちの写真もお預かりします。</p></div>
-      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--taupe)"><img src="images/step-4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">4</span></div><h3>デザイン・編集</h3><p>“らしさ”を込めてレイアウト。世界にひとつの形に。</p></div>
-      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--pink)"><img src="images/step-5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">5</span></div><h3>校正・納品</h3><p>ご確認・修正のうえ、心を込めてお届けします。</p></div>
+      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--terra)"><img src="step-1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">1</span></div><h3>ご相談・資料請求</h3><p>まずはお気軽にご連絡を。ご要望をうかがいます。</p></div>
+      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--honey)"><img src="step-2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">2</span></div><h3>お見積り・ご契約</h3><p>内容に合わせたプランとお見積りをご提案します。</p></div>
+      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--teal)"><img src="step-3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">3</span></div><h3>撮影・写真集め</h3><p>行事や日常を撮影。お手持ちの写真もお預かりします。</p></div>
+      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--taupe)"><img src="step-4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">4</span></div><h3>デザイン・編集</h3><p>“らしさ”を込めてレイアウト。世界にひとつの形に。</p></div>
+      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--pink)"><img src="step-5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">5</span></div><h3>校正・納品</h3><p>ご確認・修正のうえ、心を込めてお届けします。</p></div>
     </div>
   </div>
 </section>
@@ -581,10 +581,10 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
 
       <!-- 切り抜き写真②（任意・不要ならこの div ごと削除） -->
       <div class="cta-cutout cutout-slot">
-        <img src="images/cta-cutout.png" alt="子どもの写真" class="cutout"
+        <img src="cta-cutout.png" alt="子どもの写真" class="cutout"
              onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
         <div class="cutout-ph">
-          切り抜き②<small>背景透過PNG<br>images/cta-cutout.png</small>
+          切り抜き②<small>背景透過PNG<br>cta-cutout.png</small>
         </div>
       </div>
 
