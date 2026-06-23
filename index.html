@@ -234,7 +234,7 @@ h1,h2,h3{font-family:var(--f-jp);font-weight:700;color:var(--ink);line-height:1.
 .plan-body ul{list-style:none;display:flex;flex-direction:column;gap:.75rem}
 .plan-body li{display:flex;gap:.55em;font-weight:500;font-size:.95rem}
 .plan-body li svg{flex:0 0 auto;width:19px;height:19px;margin-top:.3em;color:var(--teal)}
-.plan .btn{margin:1.4rem 1.6rem 0;justify-content:center;width:calc(100% - 3.2rem)}
+.plan .btn{margin:1.4rem 1.6rem 1.8rem;justify-content:center;width:calc(100% - 3.2rem)}
 .recommend{position:relative;box-shadow:var(--shadow)}
 .recommend::before{content:"おすすめ";position:absolute;top:14px;right:14px;z-index:3;background:var(--honey);color:#fff;font-family:var(--f-jp);font-weight:700;font-size:.78rem;padding:.3em .9em;border-radius:999px}
 
@@ -243,7 +243,8 @@ h1,h2,h3{font-family:var(--f-jp);font-weight:700;color:var(--ink);line-height:1.
    ================================================================= */
 .steps{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
 .step{flex:1 1 0;min-width:160px;max-width:205px;text-align:center}
-.step-circle{width:84px;height:84px;margin:0 auto 1rem;border-radius:50%;overflow:hidden;box-shadow:var(--shadow-sm);position:relative}
+.step-circle{width:84px;height:84px;margin:0 auto 1rem;border-radius:50%;display:grid;place-items:center;box-shadow:var(--shadow-sm);position:relative;background:var(--sc,var(--teal))}
+.step-circle>svg{width:38px;height:38px;color:#fff}
 .step-circle .ph{width:100%;height:100%}
 .step-no{position:absolute;bottom:-6px;right:-6px;width:32px;height:32px;border-radius:50%;background:#fff;color:var(--teal-deep);display:grid;place-items:center;font-family:var(--f-jp);font-weight:700;font-size:.95rem;box-shadow:var(--shadow-sm);z-index:3}
 .step h3{font-size:1.05rem;margin-bottom:.4rem}
@@ -546,11 +547,11 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
     </div>
 
     <div class="steps">
-      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--terra)"><img src="step-1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">1</span></div><h3>ご相談・資料請求</h3><p>まずはお気軽にご連絡を。ご要望をうかがいます。</p></div>
-      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--honey)"><img src="step-2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">2</span></div><h3>お見積り・ご契約</h3><p>内容に合わせたプランとお見積りをご提案します。</p></div>
-      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--teal)"><img src="step-3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">3</span></div><h3>撮影・写真集め</h3><p>行事や日常を撮影。お手持ちの写真もお預かりします。</p></div>
-      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--taupe)"><img src="step-4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">4</span></div><h3>デザイン・編集</h3><p>“らしさ”を込めてレイアウト。世界にひとつの形に。</p></div>
-      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--pink)"><img src="step-5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">5</span></div><h3>校正・納品</h3><p>ご確認・修正のうえ、心を込めてお届けします。</p></div>
+      <div class="step"><div class="step-circle" style="--sc:var(--terra)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 4H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3v3.2L11.6 16H20a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1Z"/><circle cx="9" cy="10" r=".5" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r=".5" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r=".5" fill="currentColor" stroke="none"/></svg><span class="step-no">1</span></div><h3>ご相談・資料請求</h3><p>まずはお気軽にご連絡を。ご要望をうかがいます。</p></div>
+      <div class="step"><div class="step-circle" style="--sc:var(--honey)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3v5h5"/><path d="M8.5 13h7M8.5 16.5h5"/></svg><span class="step-no">2</span></div><h3>お見積り・ご契約</h3><p>内容に合わせたプランとお見積りをご提案します。</p></div>
+      <div class="step"><div class="step-circle" style="--sc:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h3l1.5-2h9L18 8h3v11H3z"/><circle cx="12" cy="13" r="3.4"/></svg><span class="step-no">3</span></div><h3>撮影・写真集め</h3><p>行事や日常を撮影。お手持ちの写真もお預かりします。</p></div>
+      <div class="step"><div class="step-circle" style="--sc:var(--taupe)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 4.5l3 3L8 19l-4 1 1-4z"/><path d="M14.3 6.7l3 3"/></svg><span class="step-no">4</span></div><h3>デザイン・編集</h3><p>“らしさ”を込めてレイアウト。世界にひとつの形に。</p></div>
+      <div class="step"><div class="step-circle" style="--sc:var(--pink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11h14v9H5z"/><path d="M4 8h16v3H4z"/><path d="M12 8v12"/><path d="M12 8C10 8 7 7.6 8 5.6 8.6 4.4 11 5 12 8Z"/><path d="M12 8C14 8 17 7.6 16 5.6 15.4 4.4 13 5 12 8Z"/></svg><span class="step-no">5</span></div><h3>校正・納品</h3><p>ご確認・修正のうえ、心を込めてお届けします。</p></div>
     </div>
   </div>
 </section>
