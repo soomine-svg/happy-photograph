@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Photograph｜卒園・卒業アルバム制作</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Permanent+Marker&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<!--
+======================================================================
+  写真の入れ方（このファイル1つで完結します）
+  ① このHTMLと同じ場所に「images」フォルダを作る
+  ② 下記の名前でファイルを置く（または各 <img src="..."> を書き換える）
+
+  ▼ 通常写真（枠あり・形に沿ってトリミングされます）
+     images/hero-left.jpg  /  images/hero-right.jpg
+     images/gallery-1〜4.jpg  /  images/feature-1〜3.jpg  /  images/step-1〜5.jpg
+
+  ▼ 切り抜き写真（背景透過PNG・最大2枚・影が形に沿って浮きます）
+     images/hero-cutout.png …トップの主役（良い表情・ポーズの1枚）
+     images/cta-cutout.png  …CTA（任意。不要なら該当ブロックを削除）
+
+  ※ ファイルが無い間は、色のプレースホルダー（仮）が表示されます。
+  ※ 写真を入れると仮の色は消え、写真だけになります（フチは残りません）。
+======================================================================
+-->
+
+<style>
+/* =================================================================
+   TOKENS — Starbucks-style teal
+   ================================================================= */
+:root{
+  --paper:#FBF8F1;
+  --paper-2:#F1EDE1;
+  --teal:#2E9BB5;
+  --teal-deep:#1C7E97;
+  --honey:#E3B15A;
+  --ink:#3A3833;
+  --mute:#857F73;
+  --terra:#C9744E;
+  --taupe:#B89B83;
+  --pink:#DDA288;
+  --line:#E6DFCF;
+
+  --f-brush:'Permanent Marker', cursive;
+  --f-script:'Caveat', cursive;
+  --f-jp:'Zen Maru Gothic', sans-serif;
+
+  --shadow:0 26px 46px -26px rgba(40,60,66,.42);
+  --shadow-sm:0 14px 28px -16px rgba(40,60,66,.30);
+  --maxw:1180px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{font-family:var(--f-jp);color:var(--ink);background:var(--paper);line-height:1.9;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(var(--maxw),90vw);margin-inline:auto;position:relative;z-index:2}
+
+h1,h2,h3{font-family:var(--f-jp);font-weight:700;color:var(--ink);line-height:1.5;letter-spacing:.01em}
+
+.brush{font-family:var(--f-brush);font-weight:400;color:var(--teal);line-height:.95;letter-spacing:.01em}
+.script{font-family:var(--f-script);font-weight:700;color:var(--teal-deep);font-size:clamp(1.5rem,3.4vw,2rem);line-height:1;transform:rotate(-3deg);display:inline-block}
+.eyebrow{display:inline-block;font-size:.78rem;letter-spacing:.22em;color:var(--mute);font-weight:700}
+.lead{color:var(--ink);font-weight:500}
+
+/* =================================================================
+   BUTTONS
+   ================================================================= */
+.btn{display:inline-flex;align-items:center;gap:.55em;font-family:var(--f-jp);font-weight:700;font-size:1.02rem;line-height:1;padding:.95em 2em;border-radius:999px;border:none;cursor:pointer;transition:transform .2s ease, box-shadow .2s ease}
+.btn:focus-visible{outline:3px solid var(--honey);outline-offset:3px}
+.btn-primary{background:var(--teal);color:#fff;box-shadow:0 14px 26px -12px rgba(46,155,181,.75)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 30px -12px rgba(46,155,181,.75)}
+.btn-ghost{background:transparent;color:var(--teal-deep);border:2px solid var(--teal-deep)}
+.btn-ghost:hover{transform:translateY(-3px);background:rgba(46,155,181,.08)}
+.btn-cream{background:#fff;color:var(--teal-deep);box-shadow:var(--shadow-sm)}
+.btn-cream:hover{transform:translateY(-3px)}
+.btn .arr{transition:transform .2s ease}.btn:hover .arr{transform:translateX(4px)}
+
+/* =================================================================
+   PHOTO SLOTS
+   --------------------------------------------------------------
+   .ph  = 枠あり写真（color fallback + <img> を重ねる）
+   .cutout-slot = 切り抜き写真（背景透過PNG / 影が形に沿う）
+   ================================================================= */
+.ph{position:relative;display:flex;flex-direction:column;gap:.4rem;align-items:center;justify-content:center;overflow:hidden;background:var(--c,var(--taupe));color:#fff}
+.ph::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 30% 18%,rgba(255,255,255,.24),transparent 60%)}
+.ph>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+.ph-cam{width:40px;height:40px;opacity:.82;position:relative;z-index:1}
+.ph-label{font-family:var(--f-jp);font-weight:500;font-size:1rem;letter-spacing:.04em;position:relative;z-index:1;opacity:.96}
+.sh-circle{border-radius:50%}
+.sh-blob{border-radius:46% 54% 58% 42% / 52% 44% 56% 48%}
+.sh-blob2{border-radius:60% 40% 47% 53% / 42% 58% 42% 58%}
+.sh-arch{border-radius:48% 48% 16% 16% / 40% 40% 12% 12%}
+.sh-soft{border-radius:26px}
+.framed{box-shadow:var(--shadow)}
+
+/* cutout (transparent PNG) */
+.cutout-slot{position:relative;display:flex;align-items:flex-end;justify-content:center}
+.cutout{display:block;width:100%;height:auto;filter:drop-shadow(0 18px 20px rgba(28,60,70,.30));animation:floaty 6s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.cutout-ph{display:none;width:100%;aspect-ratio:3/4;border:2.5px dashed var(--teal);border-radius:22px;background:rgba(46,155,181,.07);color:var(--teal-deep);text-align:center;padding:1.1rem;place-items:center;align-content:center;gap:.4rem;font-weight:700;font-size:.92rem;line-height:1.5}
+.cutout-ph svg{width:38px;height:38px;opacity:.7}
+.cutout-ph small{font-weight:500;font-size:.7rem;opacity:.8;display:block;margin-top:.3rem;word-break:break-all}
+
+/* =================================================================
+   DEVICES — seal stamp, ring text, splash, rings
+   ================================================================= */
+.seal{width:128px;aspect-ratio:1/1;border-radius:50%;background:var(--teal);position:relative;box-shadow:var(--shadow-sm)}
+.seal::before{content:"";position:absolute;inset:9px;border:1.5px solid rgba(255,255,255,.6);border-radius:50%}
+.seal-ring{position:absolute;inset:7px;animation:spin 26s linear infinite}
+.seal-ring text{fill:#fff;font-family:var(--f-jp);font-weight:700;font-size:8.5px;letter-spacing:2px}
+.seal-center{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#fff;font-family:var(--f-jp);font-weight:700;font-size:.76rem;line-height:1.25;gap:.1rem}
+.seal-center svg{width:22px;height:22px;opacity:.95}
+
+.ring-text{position:absolute;inset:-13%;width:126%;height:126%;z-index:4;pointer-events:none;animation:spin 40s linear infinite}
+.ring-text text{font-family:var(--f-jp);font-weight:700;font-size:8.5px;letter-spacing:3px;fill:var(--teal-deep)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.rings{position:absolute;z-index:0;opacity:.22;pointer-events:none}
+.rings circle{fill:none;stroke:var(--teal);stroke-width:2}
+.splash{position:absolute;z-index:0;pointer-events:none}
+
+.bl{position:relative;display:inline-block}
+.bl-line{position:absolute;left:-3%;bottom:-.12em;width:106%;height:.34em;z-index:-1}
+
+.float{animation:float 8s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-12px) rotate(var(--r,0deg))}}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* =================================================================
+   NAV
+   ================================================================= */
+.nav{position:sticky;top:0;z-index:60;background:rgba(251,248,241,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-in{width:min(var(--maxw),94vw);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
+.logo{display:flex;align-items:center;gap:.55rem;font-family:var(--f-brush);font-size:1.2rem;color:var(--teal);padding-top:4px}
+.logo .badge{width:34px;height:34px;border-radius:50%;background:var(--teal);display:grid;place-items:center;color:#fff;flex:0 0 auto}
+.logo .badge svg{width:17px;height:17px}
+.nav-links{display:flex;gap:1.7rem;font-weight:700;font-size:.95rem;color:var(--ink)}
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--teal);transition:width .25s}
+.nav-links a:hover::after{width:100%}
+.nav .btn{padding:.6em 1.3em;font-size:.9rem}
+
+/* =================================================================
+   HERO
+   ================================================================= */
+.hero{position:relative;padding:clamp(2.5rem,6vw,4.5rem) 0 clamp(3rem,7vw,5rem);overflow:hidden;text-align:center}
+.hero-in{max-width:800px;margin-inline:auto;animation:rise .8s ease both}
+.hero .eyebrow{margin-bottom:1rem}
+.hero h1{margin:.1em 0}
+.hero .brush{font-size:clamp(3rem,10vw,6rem);transform:rotate(-2deg)}
+.hero .amp{color:var(--honey);font-size:1.25em;vertical-align:-.06em;padding:0 .04em}
+.hero-jp{font-size:clamp(1.3rem,3.2vw,2rem);font-weight:700;color:var(--ink);margin:.6rem 0 1rem}
+.hero-lead{font-size:clamp(1rem,1.6vw,1.12rem);max-width:30em;margin:0 auto 1.9rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center}
+.hero-note-line{margin-top:1.4rem;font-size:.85rem;color:var(--mute);font-weight:500}
+
+.hero-photos{position:relative;margin-top:clamp(2.5rem,5vw,3.5rem);display:flex;gap:clamp(1rem,2.5vw,2rem);justify-content:center;align-items:flex-end;flex-wrap:wrap;z-index:2}
+.hp{position:relative}
+.hp .ph{width:100%;height:100%}
+.hp-1{width:clamp(170px,22vw,260px)} .hp-1 .ph{aspect-ratio:4/5}
+.hp-3{width:clamp(170px,22vw,260px);margin-bottom:30px} .hp-3 .ph{aspect-ratio:4/5}
+.hp-1{transform:rotate(-2deg)} .hp-3{transform:rotate(2deg)}
+/* center = cutout (the star) */
+.hero-cutout{width:clamp(200px,27vw,330px);z-index:3}
+.hero-seal{position:absolute;right:calc(50% - 210px);bottom:-22px;z-index:6;transform:rotate(-8deg)}
+.hero-cap{position:absolute;left:calc(50% - 255px);top:0;z-index:6;font-family:var(--f-script);color:var(--teal-deep);font-size:1.4rem;transform:rotate(-6deg)}
+
+/* =================================================================
+   INTRO NOTE
+   ================================================================= */
+.intro{padding:clamp(2rem,4vw,3rem) 0}
+.note{max-width:560px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-sm);padding:1.6rem 1.8rem;position:relative;transform:rotate(-1.2deg)}
+.note::after{content:"";position:absolute;top:0;right:0;border-width:0 26px 26px 0;border-style:solid;border-color:var(--paper-2) var(--paper);border-radius:0 0 0 6px}
+.note .script{font-size:1.5rem;margin-bottom:.2rem}
+.note h4{font-family:var(--f-jp);font-weight:700;color:var(--teal-deep);font-size:1.15rem;margin-bottom:.4rem}
+.note p{font-weight:500;font-size:.95rem;color:var(--ink)}
+
+/* =================================================================
+   SECTION SHELL
+   ================================================================= */
+.sec{position:relative;padding:clamp(3.5rem,8vw,6rem) 0;overflow:hidden}
+.sec-head{text-align:center;margin-bottom:clamp(2.4rem,5vw,3.6rem);position:relative;z-index:2}
+.sec-head .brush{font-size:clamp(1.8rem,4vw,2.6rem);display:block;margin-bottom:.1rem}
+.sec-head h2{font-size:clamp(1.7rem,4vw,2.5rem)}
+.sec-head .sec-sub{color:var(--mute);font-weight:500;margin-top:.8rem;font-size:.95rem}
+
+/* =================================================================
+   GALLERY
+   ================================================================= */
+.gallery{display:flex;gap:clamp(.8rem,2vw,1.5rem);justify-content:center;align-items:flex-end;flex-wrap:wrap;position:relative;z-index:2}
+.gitem{position:relative}
+.gitem .ph{width:100%;height:100%}
+.gcap{text-align:center;font-family:var(--f-script);color:var(--teal-deep);font-size:1.3rem;margin-top:.5rem;line-height:1}
+.g1{width:clamp(150px,21vw,230px)} .g1 .ph{aspect-ratio:3/4}
+.g2{width:clamp(150px,21vw,230px);margin-bottom:34px} .g2 .ph{aspect-ratio:1/1}
+.g3{width:clamp(150px,22vw,250px)} .g3 .ph{aspect-ratio:4/5}
+.g4{width:clamp(150px,21vw,230px);margin-bottom:24px} .g4 .ph{aspect-ratio:1/1}
+.gitem:nth-child(1){transform:rotate(-2deg)} .gitem:nth-child(2){transform:rotate(1.5deg)} .gitem:nth-child(3){transform:rotate(-1deg)} .gitem:nth-child(4){transform:rotate(2deg)}
+
+/* =================================================================
+   FEATURES
+   ================================================================= */
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center;margin-bottom:clamp(3rem,7vw,5rem);position:relative;z-index:2}
+.frow:last-child{margin-bottom:0}
+.frow:nth-child(even) .f-media{order:2}
+.f-media{position:relative;display:grid;place-items:center;min-height:clamp(280px,34vw,400px)}
+.f-photo{position:relative;width:clamp(240px,30vw,360px);aspect-ratio:1/1}
+.f-photo .ph{width:100%;height:100%}
+.f-text{max-width:30em}
+.f-no{font-family:var(--f-script);font-size:2.2rem;color:var(--teal);line-height:1;display:block;margin-bottom:.2rem}
+.f-text h3{font-size:clamp(1.4rem,2.8vw,1.9rem);margin-bottom:.7rem}
+.f-text p{color:var(--ink);font-weight:500}
+
+/* =================================================================
+   PRICING
+   ================================================================= */
+.pricing{background:var(--paper-2)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;align-items:stretch;position:relative;z-index:2}
+.plan{background:#fff;border-radius:24px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.plan:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.plan-top{padding:1.6rem 1.6rem 1.3rem;color:#fff}
+.plan-1 .plan-top{background:var(--taupe)} .plan-2 .plan-top{background:var(--teal)} .plan-3 .plan-top{background:var(--honey)}
+.plan-name{font-family:var(--f-jp);font-weight:700;font-size:1.25rem}
+.plan-price{font-family:var(--f-jp);font-weight:900;font-size:2rem;margin-top:.15rem;line-height:1.1}
+.plan-price small{font-weight:700;font-size:.9rem;opacity:.92}
+.plan-body{padding:1.5rem 1.6rem .5rem;flex:1}
+.plan-body ul{list-style:none;display:flex;flex-direction:column;gap:.75rem}
+.plan-body li{display:flex;gap:.55em;font-weight:500;font-size:.95rem}
+.plan-body li svg{flex:0 0 auto;width:19px;height:19px;margin-top:.3em;color:var(--teal)}
+.plan .btn{margin:1.4rem 1.6rem 0;justify-content:center;width:calc(100% - 3.2rem)}
+.recommend{position:relative;box-shadow:var(--shadow)}
+.recommend::before{content:"おすすめ";position:absolute;top:14px;right:14px;z-index:3;background:var(--honey);color:#fff;font-family:var(--f-jp);font-weight:700;font-size:.78rem;padding:.3em .9em;border-radius:999px}
+
+/* =================================================================
+   FLOW
+   ================================================================= */
+.steps{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+.step{flex:1 1 0;min-width:160px;max-width:205px;text-align:center}
+.step-circle{width:84px;height:84px;margin:0 auto 1rem;border-radius:50%;overflow:hidden;box-shadow:var(--shadow-sm);position:relative}
+.step-circle .ph{width:100%;height:100%}
+.step-no{position:absolute;bottom:-6px;right:-6px;width:32px;height:32px;border-radius:50%;background:#fff;color:var(--teal-deep);display:grid;place-items:center;font-family:var(--f-jp);font-weight:700;font-size:.95rem;box-shadow:var(--shadow-sm);z-index:3}
+.step h3{font-size:1.05rem;margin-bottom:.4rem}
+.step p{font-weight:500;font-size:.85rem;color:var(--mute);line-height:1.7}
+
+/* =================================================================
+   FAQ
+   ================================================================= */
+.faq{background:var(--paper-2)}
+.faq-list{max-width:760px;margin-inline:auto;display:flex;flex-direction:column;gap:1rem;position:relative;z-index:2}
+.faq-item{background:#fff;border-radius:18px;box-shadow:var(--shadow-sm);overflow:hidden}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.9rem;padding:1.15rem 1.5rem;font-family:var(--f-jp);font-weight:700;font-size:1.02rem;color:var(--ink)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-q{flex:0 0 auto;width:32px;height:32px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-family:var(--f-jp);font-weight:700;font-size:.95rem}
+.faq-mark{margin-left:auto;flex:0 0 auto;width:22px;height:22px;position:relative}
+.faq-mark::before,.faq-mark::after{content:"";position:absolute;background:var(--teal);inset:0;margin:auto;border-radius:2px}
+.faq-mark::before{width:15px;height:2.5px}.faq-mark::after{width:2.5px;height:15px;transition:transform .25s}
+.faq-item[open] .faq-mark::after{transform:rotate(90deg)}
+.faq-item[open] summary{color:var(--teal-deep)}
+.faq-body{padding:0 1.5rem 1.3rem 4.4rem;font-weight:500;color:var(--ink);font-size:.94rem}
+
+/* =================================================================
+   CTA + FOOTER
+   ================================================================= */
+.cta-wrap{padding:clamp(3rem,7vw,5rem) 0}
+.cta{position:relative;overflow:hidden;border-radius:34px;background:var(--teal);color:#fff;text-align:center;padding:clamp(2.8rem,6vw,4.5rem) clamp(1.5rem,5vw,3rem);box-shadow:var(--shadow)}
+.cta .brush{color:#fff;font-size:clamp(2rem,5vw,3.2rem);display:block;margin-bottom:.4rem}
+.cta h2{color:#fff;font-size:clamp(1.4rem,3.4vw,2rem);margin-bottom:.7rem;font-weight:700}
+.cta .cta-sub{opacity:.94;margin-bottom:1.8rem;font-weight:500}
+.cta .btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+.cta .cta-foot{margin-top:1.9rem;font-family:var(--f-script);font-size:1.35rem;opacity:.95}
+/* CTA cutout (2枚目・任意) */
+.cta-cutout{position:absolute;bottom:0;left:clamp(8px,3vw,40px);width:clamp(130px,16vw,210px);z-index:3;align-items:flex-end}
+.cta-cutout .cutout-ph{aspect-ratio:3/4;border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);color:#fff}
+.cta-cutout .cutout-ph small{color:#fff}
+
+footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:relative;border-top:1px solid var(--line)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:2rem;position:relative;z-index:2}
+.foot-brand .logo{margin-bottom:1.1rem}
+.foot-tag{font-family:var(--f-jp);font-weight:700;color:var(--teal-deep);font-size:1.1rem;line-height:1.8;max-width:22em}
+.foot-sub{margin-top:.7rem;font-size:.82rem;color:var(--mute);font-weight:500}
+.foot-links{display:flex;flex-direction:column;gap:.6rem;font-weight:700;font-size:.95rem}
+.foot-links a{color:var(--ink);opacity:.85;transition:opacity .2s,color .2s}.foot-links a:hover{opacity:1;color:var(--teal)}
+.foot-contact{margin-top:1rem;font-size:.88rem;color:var(--mute);font-weight:500}
+.foot-bottom{border-top:1px solid var(--line);margin-top:2.2rem;padding-top:1.3rem;text-align:center;font-size:.78rem;color:var(--mute)}
+
+/* =================================================================
+   RESPONSIVE
+   ================================================================= */
+@media (max-width:900px){
+  .nav-links{display:none}
+  .hero-seal{right:6%;bottom:-18px} .hero-cap{display:none}
+  .hero-cutout{width:clamp(190px,40vw,260px)}
+  .frow{grid-template-columns:1fr;gap:1.8rem}
+  .frow:nth-child(even) .f-media{order:0}
+  .f-text{text-align:center;margin-inline:auto}
+  .plans{grid-template-columns:1fr;max-width:420px;margin-inline:auto}
+  .step{flex:1 1 44%;max-width:none}
+  .foot-grid{grid-template-columns:1fr;gap:1.6rem}
+}
+@media (max-width:560px){
+  .gitem,.gitem:nth-child(n),.hp,.hp-1,.hp-3{transform:none}
+  .g2,.g4,.hp-3{margin-bottom:0}
+  .step{flex:1 1 100%}
+  .faq-body{padding-left:1.5rem}
+  .hero-seal{position:static;display:inline-block;margin-top:1.4rem;transform:rotate(-6deg)}
+  .cta-cutout{display:none} /* 狭い画面では2枚目を隠す */
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+
+<body>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav">
+  <div class="nav-in">
+    <a href="#top" class="logo">
+      <span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3l1.5-2h9L18 8h3v11H3z"/><circle cx="12" cy="13" r="3.4"/></svg></span>
+      Happy Photograph
+    </a>
+    <nav class="nav-links" aria-label="メインメニュー">
+      <a href="#gallery">作品</a><a href="#features">特徴</a><a href="#pricing">料金</a><a href="#flow">流れ</a><a href="#faq">Q&amp;A</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary">資料請求</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <svg class="rings" viewBox="0 0 600 600" width="600" height="600" style="top:-120px;left:50%;transform:translateX(-50%)" aria-hidden="true"><circle cx="300" cy="300" r="150"/><circle cx="300" cy="300" r="210"/><circle cx="300" cy="300" r="278"/></svg>
+  <svg class="splash" viewBox="0 0 200 200" width="150" height="150" style="top:4%;left:9%;opacity:.12" aria-hidden="true"><path d="M104 16 C146 10 184 44 186 88 C188 128 160 156 124 172 C92 186 46 180 26 146 C8 116 16 70 42 46 C60 28 78 21 104 16 Z" fill="var(--teal)"/></svg>
+  <svg class="splash float" viewBox="0 0 100 100" width="56" height="56" style="top:18%;right:10%;--r:0deg" aria-hidden="true"><path d="M50 6 C56 38 62 44 94 50 C62 56 56 62 50 94 C44 62 38 56 6 50 C38 44 44 38 50 6Z" fill="var(--honey)"/></svg>
+
+  <div class="wrap hero-in">
+    <span class="eyebrow">卒園・卒業アルバム制作 — EST.2026 MIYAZAKI</span>
+    <h1><span class="brush">Smiles <span class="amp">&amp;</span> <span class="bl">Memories<svg class="bl-line" viewBox="0 0 300 26" preserveAspectRatio="none" aria-hidden="true"><path d="M6 16 C70 6 150 22 200 13 C240 6 270 16 294 11" fill="none" stroke="var(--teal)" stroke-width="10" stroke-linecap="round"/></svg></span></span></h1>
+    <p class="hero-jp">その毎日を、まるごと一冊に。</p>
+    <p class="hero-lead lead">笑った顔も、ちょっと泣いた顔も。卒園・卒業のかけがえのない瞬間を、世界にひとつのアルバムに残します。</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">無料で資料請求 <span class="arr">→</span></a>
+      <a href="#flow" class="btn btn-ghost">制作の流れ</a>
+    </div>
+    <p class="hero-note-line">アルバム制作は全国対応／出張撮影は九州エリア</p>
+  </div>
+
+  <div class="hero-photos">
+    <span class="hero-cap">主役は、きみ ↘</span>
+
+    <!-- 左：枠あり写真 -->
+    <figure class="hp hp-1"><div class="ph sh-arch framed" style="--c:var(--honey)">
+      <img src="images/hero-left.jpg" alt="運動会の様子" onerror="this.remove()">
+      <span class="ph-label" style="color:var(--ink)">うんどうかい</span>
+    </div></figure>
+
+    <!-- 中央：切り抜き写真①（主役・背景透過PNG） -->
+    <div class="hp hero-cutout cutout-slot">
+      <img src="images/hero-cutout.png" alt="主役の子どもの写真" class="cutout"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+      <div class="cutout-ph">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h3l1.5-2h9L18 8h3v11H3z"/><circle cx="12" cy="13" r="3.4"/></svg>
+        主役の切り抜き写真
+        <small>背景透過PNG<br>images/hero-cutout.png</small>
+      </div>
+    </div>
+
+    <!-- 右：枠あり写真 -->
+    <figure class="hp hp-3"><div class="ph sh-arch framed" style="--c:var(--taupe)">
+      <img src="images/hero-right.jpg" alt="卒園式の様子" onerror="this.remove()">
+      <span class="ph-label">そつえんしき</span>
+    </div></figure>
+
+    <div class="hero-seal">
+      <div class="seal">
+        <svg class="seal-ring" viewBox="0 0 200 200" aria-hidden="true">
+          <defs><path id="sealpath" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+          <text><textPath href="#sealpath" startOffset="0">HAPPY PHOTOGRAPH ★ GRADUATION ALBUM ★ </textPath></text>
+        </svg>
+        <div class="seal-center">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h3l1.5-2h9L18 8h3v11H3z"/><circle cx="12" cy="13" r="3.4"/></svg>
+          <span>卒園・卒業<br>2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ INTRO NOTE ============================ -->
+<section class="intro">
+  <div class="wrap">
+    <aside class="note">
+      <span class="script">What's Happy Photograph?</span>
+      <h4>Happy Photograph って？</h4>
+      <p>宮崎・都城の小さな写真屋です。卒園・卒業のアルバムを、園や学校ごとに一冊ずつ手づくり。全国どこでもお届けし、九州エリアは出張撮影にもうかがいます。</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================ GALLERY ============================ -->
+<section class="sec" id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="brush">Our Album</span>
+      <h2>めくるたび、あの日にかえる。</h2>
+      <p class="sec-sub">アルバムは、写真が主役。日常の何気ない一枚も、宝物のページになります。</p>
+    </div>
+
+    <div class="gallery">
+      <figure class="gitem g1"><div class="ph sh-soft framed" style="--c:var(--honey)"><img src="images/gallery-1.jpg" alt="運動会" loading="lazy" onerror="this.remove()"><span class="ph-label" style="color:var(--ink)">うんどうかい</span></div><figcaption class="gcap">運動会</figcaption></figure>
+      <figure class="gitem g2"><div class="ph sh-circle framed" style="--c:var(--teal)"><img src="images/gallery-2.jpg" alt="お友だち" loading="lazy" onerror="this.remove()"><span class="ph-label">なかよし</span></div><figcaption class="gcap">お友だち</figcaption></figure>
+      <figure class="gitem g3"><div class="ph sh-arch framed" style="--c:var(--terra)"><img src="images/gallery-3.jpg" alt="給食の時間" loading="lazy" onerror="this.remove()"><span class="ph-label">きゅうしょく</span></div><figcaption class="gcap">給食の時間</figcaption></figure>
+      <figure class="gitem g4"><div class="ph sh-blob framed" style="--c:var(--taupe)"><img src="images/gallery-4.jpg" alt="おさんぽ" loading="lazy" onerror="this.remove()"><span class="ph-label">おさんぽ</span></div><figcaption class="gcap">おさんぽ</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FEATURES ============================ -->
+<section class="sec" id="features">
+  <svg class="splash" viewBox="0 0 200 200" width="130" height="130" style="bottom:8%;left:4%;opacity:.1" aria-hidden="true"><path d="M104 16 C146 10 184 44 186 88 C188 128 160 156 124 172 C92 186 46 180 26 146 C8 116 16 70 42 46 C60 28 78 21 104 16 Z" fill="var(--teal)"/></svg>
+
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="brush">Why Us</span>
+      <h2>写真が、主役。</h2>
+    </div>
+
+    <!-- feature 1 : 円形写真＋回る文字 -->
+    <div class="frow">
+      <div class="f-media">
+        <div class="f-photo">
+          <div class="ph sh-circle framed" style="--c:var(--terra)">
+            <img src="images/feature-1.jpg" alt="表紙デザイン" loading="lazy" onerror="this.remove()">
+            <span class="ph-label">ひょうし</span>
+          </div>
+          <svg class="ring-text" viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="cpf1" d="M100,100 m-84,0 a84,84 0 1,1 168,0 a84,84 0 1,1 -168,0"/></defs>
+            <text><textPath href="#cpf1" startOffset="0">ONE OF A KIND ★ 世界にひとつ ★ ONE OF A KIND ★ </textPath></text>
+          </svg>
+        </div>
+      </div>
+      <div class="f-text">
+        <span class="f-no">01</span>
+        <h3>世界にひとつの、デザイン。</h3>
+        <p class="lead">表紙からレイアウトまで、園や学校の“らしさ”に合わせて一冊まるごとオーダーメイド。テンプレートではない、同じ顔のないアルバムをお届けします。</p>
+      </div>
+    </div>
+
+    <!-- feature 2 -->
+    <div class="frow">
+      <div class="f-media">
+        <div class="f-photo">
+          <div class="ph sh-arch framed" style="--c:var(--teal)">
+            <img src="images/feature-2.jpg" alt="撮影の様子" loading="lazy" onerror="this.remove()">
+            <span class="ph-label">さつえい</span>
+          </div>
+        </div>
+      </div>
+      <div class="f-text">
+        <span class="f-no">02</span>
+        <h3>プロの、まなざし。</h3>
+        <p class="lead">運動会のがんばる顔も、給食のなにげない笑顔も。プロのカメラマンが、子どもたちの自然な“ふだん”をすくい取ります。九州エリアは出張撮影に対応。お手持ちの写真もお預かりできます。</p>
+      </div>
+    </div>
+
+    <!-- feature 3 -->
+    <div class="frow">
+      <div class="f-media">
+        <div class="f-photo">
+          <div class="ph sh-blob2 framed" style="--c:var(--honey)">
+            <img src="images/feature-3.jpg" alt="製本" loading="lazy" onerror="this.remove()">
+            <span class="ph-label" style="color:var(--ink)">せいほん</span>
+          </div>
+        </div>
+      </div>
+      <div class="f-text">
+        <span class="f-no">03</span>
+        <h3>何十年先も、色あせない。</h3>
+        <p class="lead">大人になってページを開いても、あの頃のまま。退色に強い印刷と、めくるたび愛着がわく丈夫な製本で、ずっと残る一冊に仕上げます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PRICING ============================ -->
+<section class="sec pricing" id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="brush">Price</span>
+      <h2>3つの、シンプルなプラン。</h2>
+      <!-- ▼ 価格はサンプルです。実額に差し替えてください ▼ -->
+      <p class="sec-sub">※ページ数・冊数による目安です。詳しくはお見積りいたします。</p>
+    </div>
+
+    <div class="plans">
+      <div class="plan plan-1">
+        <div class="plan-top"><div class="plan-name">ベーシック</div><div class="plan-price">¥1,200<small>〜 /冊（税込）</small></div></div>
+        <div class="plan-body"><ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>お預かり写真でデザイン</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>24ページ〜</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>表紙デザイン 1案</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>製本 or データを選択</li>
+        </ul></div>
+        <a href="#contact" class="btn btn-ghost">このプランで相談</a>
+      </div>
+
+      <div class="plan plan-2 recommend">
+        <div class="plan-top"><div class="plan-name">スタンダード</div><div class="plan-price">¥2,800<small>〜 /冊（税込）</small></div></div>
+        <div class="plan-body"><ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>出張撮影つき（九州エリア）</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>36ページ〜</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>表紙デザイン 3案</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>レイアウトおまかせ</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>写真セレクトもサポート</li>
+        </ul></div>
+        <a href="#contact" class="btn btn-primary">このプランで相談</a>
+      </div>
+
+      <div class="plan plan-3">
+        <div class="plan-top"><div class="plan-name">プレミアム</div><div class="plan-price">お見積り<small> / フルオーダー</small></div></div>
+        <div class="plan-body"><ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>撮影＋ムービー制作</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>ページ数 自由</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>個別ページ・特別装丁</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>記念グッズ オプション</li>
+        </ul></div>
+        <a href="#contact" class="btn btn-ghost">このプランで相談</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FLOW ============================ -->
+<section class="sec" id="flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="brush">How It Works</span>
+      <h2>ご相談から納品まで、5ステップ。</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--terra)"><img src="images/step-1.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">1</span></div><h3>ご相談・資料請求</h3><p>まずはお気軽にご連絡を。ご要望をうかがいます。</p></div>
+      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--honey)"><img src="images/step-2.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">2</span></div><h3>お見積り・ご契約</h3><p>内容に合わせたプランとお見積りをご提案します。</p></div>
+      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--teal)"><img src="images/step-3.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">3</span></div><h3>撮影・写真集め</h3><p>行事や日常を撮影。お手持ちの写真もお預かりします。</p></div>
+      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--taupe)"><img src="images/step-4.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">4</span></div><h3>デザイン・編集</h3><p>“らしさ”を込めてレイアウト。世界にひとつの形に。</p></div>
+      <div class="step"><div class="step-circle"><div class="ph" style="--c:var(--pink)"><img src="images/step-5.jpg" alt="" loading="lazy" onerror="this.remove()"></div><span class="step-no">5</span></div><h3>校正・納品</h3><p>ご確認・修正のうえ、心を込めてお届けします。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="sec faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="brush">Questions</span>
+      <h2>よくある質問</h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item" open><summary><span class="faq-q">Q</span>制作期間はどのくらいですか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">内容によりますが、撮影開始からおよそ3〜6ヶ月が目安です。卒園・卒業の時期から逆算して、余裕をもったスケジュールをご提案します。</div></details>
+      <details class="faq-item"><summary><span class="faq-q">Q</span>遠方でも依頼できますか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">アルバム制作は全国どこでも対応しています。出張撮影は九州エリアを中心にうけたまわっています（その他の地域はご相談ください）。</div></details>
+      <details class="faq-item"><summary><span class="faq-q">Q</span>自分たちで撮った写真でも大丈夫？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">もちろんです。お預かりした写真だけでのデザイン制作も承ります。スマホで撮った写真でも大丈夫です。</div></details>
+      <details class="faq-item"><summary><span class="faq-q">Q</span>何冊から注文できますか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">少部数からご相談いただけます。クラス単位・園単位など、まずはご希望をお聞かせください。</div></details>
+      <details class="faq-item"><summary><span class="faq-q">Q</span>途中でデザインの変更はできますか？<span class="faq-mark" aria-hidden="true"></span></summary><div class="faq-body">校正の段階で、ご確認と修正のお時間を設けています。納得いただける一冊になるまで、いっしょに仕上げます。</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CTA ============================ -->
+<section class="cta-wrap" id="contact">
+  <div class="wrap">
+    <div class="cta">
+      <svg class="splash" viewBox="0 0 200 200" width="160" height="160" style="top:-50px;right:-30px;opacity:.18" aria-hidden="true"><path d="M104 16 C146 10 184 44 186 88 C188 128 160 156 124 172 C92 186 46 180 26 146 C8 116 16 70 42 46 C60 28 78 21 104 16 Z" fill="#fff"/></svg>
+
+      <!-- 切り抜き写真②（任意・不要ならこの div ごと削除） -->
+      <div class="cta-cutout cutout-slot">
+        <img src="images/cta-cutout.png" alt="子どもの写真" class="cutout"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+        <div class="cutout-ph">
+          切り抜き②<small>背景透過PNG<br>images/cta-cutout.png</small>
+        </div>
+      </div>
+
+      <span class="brush">Let's make it together!</span>
+      <h2>いっしょに、宝物をつくりませんか？</h2>
+      <p class="cta-sub lead">ご相談・お見積りは無料です。まずはお気軽にどうぞ。</p>
+      <div class="btns">
+        <a href="mailto:info@happyphotograph.com" class="btn btn-cream">無料で資料請求 <span class="arr">→</span></a>
+        <a href="mailto:info@happyphotograph.com" class="btn btn-ghost" style="color:#fff;border-color:#fff">メールで問い合わせ</a>
+      </div>
+      <p class="cta-foot">記憶の片隅に、そっと残るものを。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3l1.5-2h9L18 8h3v11H3z"/><circle cx="12" cy="13" r="3.4"/></svg></span>Happy Photograph</div>
+        <p class="foot-tag">いつか大人になった日に、ふと思い出せる一冊を。</p>
+        <p class="foot-sub">by H.P.canvas株式会社（宮崎県都城市）</p>
+      </div>
+      <nav class="foot-links" aria-label="フッターメニュー">
+        <a href="#gallery">作品</a><a href="#features">アルバムの特徴</a><a href="#pricing">料金プラン</a><a href="#flow">制作の流れ</a><a href="#contact">お問い合わせ</a>
+        <p class="foot-contact">📧 info@happyphotograph.com</p>
+      </nav>
+    </div>
+    <div class="foot-bottom">© 2026 Happy Photograph / H.P.canvas Inc.</div>
+  </div>
+</footer>
+
+</body>
+</html>
