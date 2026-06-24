@@ -231,6 +231,18 @@ h1,h2,h3{font-family:var(--f-jp);font-weight:700;color:var(--ink);line-height:1.
 .faq-item[open] summary{color:var(--pink-deep)}
 .faq-body{padding:0 1.5rem 1.3rem 4.4rem;font-weight:500;color:var(--ink);font-size:.93rem}
 
+/* CANCEL */
+.cancel{background:var(--paper-2)}
+.cancel-card{max-width:680px;margin-inline:auto;background:#fff;border-radius:22px;box-shadow:var(--shadow-sm);padding:clamp(1.6rem,3.4vw,2.4rem);position:relative;z-index:2}
+.cancel-intro{font-weight:500;color:var(--ink);font-size:.95rem;line-height:1.85;margin-bottom:1.3rem}
+.cancel-intro b{color:var(--teal-deep);font-weight:700}
+.cancel-rows{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.cancel-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.9rem .2rem;border-bottom:1px solid var(--line)}
+.cancel-row .ct-when{font-family:var(--f-jp);font-weight:700;color:var(--ink);font-size:.94rem}
+.cancel-row .ct-fee{font-family:var(--f-jp);font-weight:900;color:var(--pink-deep);font-size:1rem;white-space:nowrap}
+.cancel-row.is-full .ct-fee{color:var(--terra)}
+.cancel-note{margin-top:1.3rem;padding-top:1.1rem;border-top:1px dashed var(--line);font-weight:500;color:var(--mute);font-size:.88rem;line-height:1.8}
+
 /* CONTACT */
 .cta-wrap{padding:clamp(3rem,7vw,5rem) 0}
 .contact-box{position:relative;overflow:hidden;border-radius:34px;background:var(--teal);color:#fff;padding:clamp(2.4rem,5vw,3.6rem) clamp(1.5rem,5vw,3rem);box-shadow:var(--shadow)}
@@ -618,6 +630,25 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
         <summary><span class="faq-q">Q</span>支払い方法は何がありますか？<span class="faq-mark" aria-hidden="true"></span></summary>
         <div class="faq-body">各種クレジットカード／PayPay・au PAYの送金／銀行振込に対応しています。ご予約確定後、事前にお支払いをお願いしております。</div>
       </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CANCEL（ご予約・キャンセル） ============================ -->
+<section class="sec cancel" id="cancel">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="brush">booking</span>
+      <h2>ご予約・キャンセルについて</h2>
+    </div>
+    <div class="cancel-card">
+      <p class="cancel-intro">すべてのプランは、<b>ご予約確定時に全額のお支払い</b>をお願いしております。お客様の大切なお時間を確保するため、何卒ご理解とご協力をお願いいたします。ご予約確定後のキャンセルは、下記のとおりキャンセル料を申し受けます。</p>
+      <div class="cancel-rows">
+        <div class="cancel-row"><span class="ct-when">7〜4日前まで</span><span class="ct-fee">料金の50%</span></div>
+        <div class="cancel-row"><span class="ct-when">3〜1日前まで</span><span class="ct-fee">料金の70%</span></div>
+        <div class="cancel-row is-full"><span class="ct-when">当日・無断キャンセル</span><span class="ct-fee">料金の100%（返金不可）</span></div>
+      </div>
+      <p class="cancel-note">日程変更は撮影2日前まで承ります。ただし、体調不良や自然災害など、やむを得ない事情による変更はこの限りではありません。状況に応じて柔軟に対応いたしますので、お気軽にご相談ください。</p>
     </div>
   </div>
 </section>
