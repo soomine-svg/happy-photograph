@@ -424,9 +424,9 @@ details.dg-table[open]>summary::after{transform:rotate(180deg)}
 details.dg-table .dg-table-inner{overflow-x:auto;-webkit-overflow-scrolling:touch;border-top:1px solid var(--line)}
 .price-table.digital-rate thead th{background:var(--taupe)}
 .price-table.digital-rate tbody th{color:var(--ink)}
-/* 短文の改行を均等化（孤立文字防止・画面幅に追従） */
-.hero-lead{text-wrap:balance;line-break:strict}
-.step p,.contact-head p,.price-reassure span,.dl-card p,.price-story p,.about-text p,.about-note p,.frow .lead,.price-lead,.digital-lead,.dg-card p{text-wrap:balance;word-break:auto-phrase;line-break:strict}
+/* 日本語の改行：端末によって変わらない、自然な折り返しにする */
+.hero-lead{line-break:strict}
+.step p,.contact-head p,.price-reassure span,.dl-card p,.price-story p,.about-text p,.about-note p,.frow .lead,.price-lead,.digital-lead,.dg-card p{line-break:strict}
 
 /* =================================================================
    FLOW — 納期ノート
