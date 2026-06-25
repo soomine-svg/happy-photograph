@@ -350,14 +350,15 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
 .price-main .pm-top{background:var(--teal);color:#fff;padding:clamp(1.5rem,3vw,2rem) clamp(1.6rem,3vw,2.2rem);position:relative}
 .price-main .pm-badge{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.08em;background:rgba(255,255,255,.22);border-radius:999px;padding:.3em 1em;margin-bottom:.7rem}
 .price-main .pm-name{font-family:var(--f-jp);font-weight:700;font-size:1.2rem}
+.price-main .pm-size{font-family:var(--f-jp);font-weight:700;font-size:1.02rem;margin-bottom:.6rem;opacity:.97}
 .price-main .pm-price{font-family:var(--f-jp);font-weight:900;font-size:clamp(2.4rem,5vw,3.1rem);line-height:1.05;margin-top:.1rem}
 .price-main .pm-price small{font-weight:700;font-size:1rem;opacity:.92}
 .price-main .pm-cond{font-size:.86rem;opacity:.95;font-weight:500;margin-top:.4rem}
 .price-main .pm-body{padding:clamp(1.4rem,3vw,1.9rem) clamp(1.6rem,3vw,2.2rem)}
 .price-main .pm-body h4{font-size:.84rem;letter-spacing:.04em;color:var(--mute);font-weight:700;margin-bottom:.9rem}
 .price-main ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
-.price-main li{display:flex;gap:.55em;font-weight:500;font-size:.96rem;line-height:1.55}
-.price-main li svg{flex:0 0 auto;width:19px;height:19px;margin-top:.25em;color:var(--teal)}
+.price-main li{display:block;position:relative;padding-left:1.7em;font-weight:500;font-size:.96rem;line-height:1.6}
+.price-main li svg{position:absolute;left:0;top:.3em;width:19px;height:19px;color:var(--teal)}
 .price-main li b{font-weight:700;color:var(--teal-deep)}
 .price-note{margin-top:1.2rem;padding-top:1rem;border-top:1px dashed var(--line);font-size:.86rem;color:var(--mute);font-weight:500;line-height:1.7}
 
@@ -684,7 +685,7 @@ details.dg-table .dg-table-inner{overflow-x:auto;-webkit-overflow-scrolling:touc
       <div class="f-text">
         <span class="f-no">02</span>
         <h3>写真に、あの日の声も。</h3>
-        <p class="lead">ページのQRコードを読み取ると、子どもたちの声が流れます。「将来の夢」も、みんなで歌った歌も。写真と音で、当時の空気ごと残せます。他社ではオプション扱いのこの機能を、料金にふくめています。</p>
+        <p class="lead">ページのQRコードを読み取ると、子どもたちの声が流れます。「将来の夢」も、みんなで歌った歌も。写真と音で、当時の空気ごと残せます。他社ではオプション扱いのこの機能を、料金に含めています。</p>
       </div>
     </div>
 
@@ -718,7 +719,7 @@ details.dg-table .dg-table-inner{overflow-x:auto;-webkit-overflow-scrolling:touc
       <div class="f-text">
         <span class="f-no">04</span>
         <h3>この内容で、この価格。</h3>
-        <p class="lead">音声収録もケースも、必要なものはぜんぶ標準装備。あれこれ追加しなくても安心の、わかりやすい料金にしています。くわしくは料金プランをご覧ください。</p>
+        <p class="lead">音声収録もアルバムケースも、必要なものはぜんぶ標準装備。あれこれ追加しなくても安心の、わかりやすい料金にしています。くわしくは料金プランをご覧ください。</p>
       </div>
     </div>
   </div>
@@ -778,7 +779,7 @@ details.dg-table .dg-table-inner{overflow-x:auto;-webkit-overflow-scrolling:touc
     <!-- 割引ストーリー -->
     <div class="price-story">
       <span class="ps-eyebrow"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg>いまは応援価格で承っております</span>
-      <p>一冊でも多く、子どもたちの手に残ってほしくて。いまはできるかぎりがんばって、お求めやすい価格でお作りしています。</p>
+      <p>一冊でも多く、子どもたちの手に残ってほしくて。今はできる限り頑張って、お求めやすい価格でお作りしています。</p>
       <p class="ps-soft">（状況が変われば、通常価格に戻ることがあります）</p>
     </div>
 
@@ -787,6 +788,7 @@ details.dg-table .dg-table-inner{overflow-x:auto;-webkit-overflow-scrolling:touc
       <div class="price-main">
         <div class="pm-top">
           <span class="pm-badge">STANDARD ／ よく選ばれるサイズ</span>
+          <div class="pm-size">26×26cm・フルフラットタイプ</div>
           <div class="pm-name">20ページ・20〜24冊 の場合</div>
           <p class="pm-was"><s>通常価格 ¥7,020 / 冊</s></p>
           <div class="pm-price">¥6,660<small> /冊（税込）</small><span class="pm-tag-now">いまだけ特別価格</span></div>
@@ -846,7 +848,7 @@ details.dg-table .dg-table-inner{overflow-x:auto;-webkit-overflow-scrolling:touc
         </tbody>
       </table>
     </div>
-    <p class="pt-legend"><span class="star">★</span> よく選ばれるサイズです。／ 表の価格はすべて<b>税込・1冊あたりの特別価格</b>です。／ どの価格にも、写真おまかせ・音声収録3本・イベント切り取り1イベント分・メンバーページ・ケースが含まれます。</p>
+    <p class="pt-legend"><span class="star">★</span> よく選ばれるサイズです。／ 表の価格はすべて<b>税込・1冊あたりの特別価格</b>です。／ どの価格にも、写真おまかせ・音声収録3本・イベント切り取り1イベント分・メンバーページ・アルバムケースが含まれます。</p>
 
     <!-- 少部数（5〜14冊） -->
     <div style="margin-top:clamp(1.8rem,4vw,2.4rem)">
@@ -878,14 +880,14 @@ details.dg-table .dg-table-inner{overflow-x:auto;-webkit-overflow-scrolling:touc
         <div class="dg-card">
           <span class="dg-tag">単品で</span>
           <h4>デジタル単品</h4>
-          <p>印刷代・ケース代がかからないぶん、制作費のみのお値段です。ご注文の家庭数で変わります。</p>
+          <p>スマホ・パソコンで楽しめる、デジタル版の単品プランです。ご注文の家庭数によって価格が変わります。</p>
           <div style="font-size:.82rem;color:var(--mute);font-weight:600;margin-top:.6rem">例：20ページ・20家庭なら</div>
           <div class="dg-price">¥5,000<small> /家庭（税込）</small></div>
         </div>
         <div class="dg-card add">
           <span class="dg-tag">紙アルバムに追加</span>
           <h4>デジタル追加</h4>
-          <p>紙アルバムをご注文の園は、デジタル版も追加できます。制作は同じなので、お手頃な定額で。</p>
+          <p>紙アルバムをご注文の園は、デジタル版もあわせて追加できます。お手頃な定額でご用意しています。</p>
           <div style="font-size:.82rem;color:var(--mute);font-weight:600;margin-top:.6rem">家庭数にかかわらず</div>
           <div class="dg-price">¥500<small> /家庭（税込）</small></div>
         </div>
