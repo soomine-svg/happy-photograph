@@ -750,6 +750,15 @@ details.dg-table .dg-table-inner{overflow-x:auto;-webkit-overflow-scrolling:touc
   .digital-cards{grid-template-columns:1fr}
 }
 </style>
+<!-- ===== Google Analytics (GA4) 測定ID: G-TE2Z5RPGFV ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TE2Z5RPGFV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TE2Z5RPGFV');
+</script>
+
 </head>
 
 <body>
@@ -1420,6 +1429,7 @@ details.dg-table .dg-table-inner{overflow-x:auto;-webkit-overflow-scrolling:touc
       if(res && (res.success === "true" || res.success === true)){
         form.reset();
         show("送信しました。2〜3日以内にご返信します。ありがとうございます。", true);
+        if (typeof gtag === "function") gtag("event", "contact_submit");
       } else {
         show("送信に失敗しました。お手数ですが info@happyphotograph.com までメールでご連絡ください。", false);
       }
@@ -1428,6 +1438,13 @@ details.dg-table .dg-table-inner{overflow-x:auto;-webkit-overflow-scrolling:touc
     }).finally(function(){
       btn.disabled = false;
       btn.innerHTML = 'この内容で送信する <span class="arr">→</span>';
+    });
+  });
+
+  /* メールリンクのクリック計測（GA4） */
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){
+    a.addEventListener("click", function(){
+      if (typeof gtag === "function") gtag("event", "mail_click");
     });
   });
 })();
