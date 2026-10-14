@@ -1363,6 +1363,7 @@ details.dg-table .dg-table-inner{overflow-x:auto;-webkit-overflow-scrolling:touc
           <label for="cf-msg">ご相談内容 <span class="opt">任意</span></label>
           <textarea id="cf-msg" name="message" placeholder="ご検討中の内容・ご質問など、なんでもどうぞ。"></textarea>
         </div>
+        <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label for="cf-hp">この欄は空のままにしてください</label><input type="text" id="cf-hp" name="hp" tabindex="-1" autocomplete="off"></div>
         <button type="submit" class="cform-submit" id="cf-submit">この内容で送信する <span class="arr">→</span></button>
         <p class="cform-note">いただいた内容は、ご相談への返信にのみ使用します。（<a href="/privacy.html" style="color:inherit;text-decoration:underline">プライバシーポリシー</a>）</p>
         <div class="cform-msg" id="cf-result" role="status" aria-live="polite"></div>
@@ -1381,13 +1382,10 @@ details.dg-table .dg-table-inner{overflow-x:auto;-webkit-overflow-scrolling:touc
 </section>
 <!-- ============================ CONTACT FORM SCRIPT ============================ -->
 <script>
-/* お問い合わせフォーム（FormSubmit 経由でメール送信）
-   送信先メール：info@happyphotograph.com
-   ※ 初回の1通だけ、FormSubmit から「有効化リンク」のメールが届きます。
-     そのリンクを一度クリックすれば、以降は普通に受信できます（設定はこれだけ）。 */
+/* お問い合わせフォーム（Apps Script「HPお問い合わせフォーム」経由で info@ にメール送信・2026-10-14〜）
+   受け口のコード：hpcanvas-os/docs/hp/gas/hp_contact_form_20261014.gs */
 (function(){
-  var MAIL = "info@happyphotograph.com"; // ← 送信先メールアドレス
-  var ENDPOINT = "https://formsubmit.co/ajax/" + MAIL;
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbwr-9eSWgKATBzKDtZL-N8q6GZDLprmZsqTlNiwDRobyv_xUjCYnBZNldn7F829khxc/exec";
 
   var form   = document.getElementById("contactForm");
   if(!form) return;
@@ -1409,21 +1407,22 @@ details.dg-table .dg-table-inner{overflow-x:auto;-webkit-overflow-scrolling:touc
       return;
     }
     var payload = {
-      "お名前":        name,
-      "メールアドレス": email,
-      "園名・お立場":   $("cf-org").value.trim(),
-      "お電話番号":     $("cf-tel").value.trim(),
-      "ご相談内容":     $("cf-msg").value.trim(),
-      "_subject":  "【Happy Photograph】サイトからのお問い合わせ",
-      "_template": "table",
-      "_captcha":  "false"
+      site:   "album",
+      name:   name,
+      email:  email,
+      fields: [
+        ["園名・お立場", $("cf-org").value.trim()],
+        ["お電話番号",   $("cf-tel").value.trim()],
+        ["ご相談内容",   $("cf-msg").value.trim()]
+      ],
+      _hp:    $("cf-hp").value
     };
 
     btn.disabled = true;
     btn.textContent = "送信中…";
     fetch(ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(payload)
     }).then(function(r){ return r.json(); }).then(function(res){
       if(res && (res.success === "true" || res.success === true)){
