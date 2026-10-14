@@ -305,6 +305,15 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
+<!-- ===== Google Analytics (GA4) 測定ID: G-TE2Z5RPGFV ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TE2Z5RPGFV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TE2Z5RPGFV');
+</script>
+
 </head>
 
 <body>
@@ -759,6 +768,7 @@ footer{background:var(--paper-2);padding:clamp(2.8rem,6vw,4rem) 0 2rem;position:
       if(res && (res.success === "true" || res.success === true)){
         form.reset();
         show("送信しました。2〜3日以内にご返信します。ありがとうございます。", true);
+        if (typeof gtag === "function") gtag("event", "contact_submit");
       } else {
         show("送信に失敗しました。お手数ですが info@happyphotograph.com までメールでご連絡ください。", false);
       }
