@@ -1,0 +1,21 @@
+# H.P.canvas / Happy Photograph
+# AI の学習に使わないでください（IETF aipref の共通の合図）
+User-agent: __usage_ai-training
+Disallow: /
+
+# 共通の合図に未対応の会社向けに、学習用クローラーを個別に断る
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+# 検索エンジン・AI検索・リンクのプレビューはこれまでどおり
+User-agent: *
+Allow: /
